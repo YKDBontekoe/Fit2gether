@@ -3,6 +3,13 @@ node_modules
 .nuxt
 nuxt.d.ts
 .output
+**/.firebase
+**/.firebaserc
 
 .env
 .env.local
+yarn.lock
+**/firebase-debug.log
+**/package-lock.json
+# keep the root package-lock so that tools are consistent
+!/package-lock.json
