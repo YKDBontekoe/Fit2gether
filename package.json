@@ -17,10 +17,10 @@
         "@fontsource/work-sans": "^4.5.1",
         "@headlessui/vue": "^1.4.1",
         "@iconify-json/heroicons-solid": "^1.0.1",
-        "@nuxtjs/eslint-config-typescript": "^6.0.1",
+        "@nuxtjs/eslint-config-typescript": "^10.0.0",
         "autoprefixer": "^10.3.7",
         "daisyui": "^1.16.0",
-        "eslint": "^8.1.0",
+        "eslint": "^8.19.0",
         "eslint-config-prettier": "^8.3.0",
         "eslint-plugin-prettier": "^4.0.0",
         "husky": "^7.0.4",
@@ -34,6 +34,7 @@
         "unplugin-icons": "^0.12.16"
     },
     "dependencies": {
+        "@nuxtjs/eslint-config": "^10.0.0",
         "firebase": "^9.8.4"
     },
     "husky": {
