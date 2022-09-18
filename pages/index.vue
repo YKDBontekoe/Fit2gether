@@ -1,9 +1,11 @@
 <template>
-  <Button type="primary">test</Button>
+  <NuxtLayout>
+    <h1>test</h1>
+  </NuxtLayout>
 </template>
 <script>
-import Button from '../components/Button'
+import Default from '../layouts/default'
 export default {
-  components: { Button },
+  components: { Default },
 }
 </script>
