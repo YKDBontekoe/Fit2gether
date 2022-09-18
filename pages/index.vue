@@ -4,8 +4,5 @@
   </NuxtLayout>
 </template>
 <script>
-import Default from '../layouts/default'
-export default {
-  components: { Default },
-}
+export default {}
 </script>
