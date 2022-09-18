@@ -1,5 +1,6 @@
 // @ts-ignore
 import { defineNuxtConfig } from 'nuxt'
+import vuetify from './src/plugins/vuetify'
 
 export default defineNuxtConfig({
   head: {
@@ -17,28 +18,30 @@ export default defineNuxtConfig({
     '~/*': './*',
   },
   modules: [
-    [
-      'unplugin-icons/nuxt',
-      {
-        defaultClass: 'w-7 h-7 inline-block',
-      },
-    ],
-    './modules/alert/module'
+    // @ts-ignore
+    // this adds the vuetify vite plugin
+    // also produces type errors in the current beta release
+    // eslint-disable-next-line require-await,@typescript-eslint/no-unused-vars
+    async (options, nuxt) => {
+      nuxt.hooks.hook('vite:extendConfig', (config) =>
+        config.plugins.push(vuetify)
+      )
+    },
   ],
   runtimeConfig: {
     public: {
-        publicUrl: process.env.PUBLIC_URL,
-    }
+      publicUrl: process.env.PUBLIC_URL,
+    },
   },
-  srcDir: './',
-  build: {
-    postcss: {
-      postcssOptions: {
-        plugins: {
-          tailwindcss: {},
-          autoprefixer: {},
-        },
-      },
+  srcDir: './src/',
+  css: ['vuetify/styles', 'mdi/css/materialdesignicons.min.css'],
+  vite: {
+    // @ts-ignore
+    ssr: {
+      noExternal: ['vuetify'], // add the vuetify vite plugin
+    },
+    define: {
+      'process.env.DEBUG': false,
     },
   },
 })

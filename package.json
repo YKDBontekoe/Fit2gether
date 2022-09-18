@@ -35,7 +35,9 @@
     "dependencies": {
         "@nuxtjs/eslint-config": "^10.0.0",
         "firebase": "^9.8.4",
-        "vue-material-design-icons": "^5.1.2"
+        "mdi": "^2.2.43",
+        "sass": "^1.54.9",
+        "vuetify": "^3.0.0-beta.11"
     },
     "husky": {
         "hooks": {

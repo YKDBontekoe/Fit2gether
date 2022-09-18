@@ -1847,7 +1847,7 @@ chardet@^0.7.0:
   resolved "https://registry.yarnpkg.com/chardet/-/chardet-0.7.0.tgz#90094849f0937f2eedc2425d0d28a9e5f0cbad9e"
   integrity sha512-mT8iDcrh03qDGRRmoA2hmBJnxpllMR+0/0qlzjqZES6NdiWDcZkCNAk4rPFZ9Q85r27unkiNNg8ZOiwZXBHwcA==
 
-chokidar@^3.5.1, chokidar@^3.5.3:
+"chokidar@>=3.0.0 <4.0.0", chokidar@^3.5.1, chokidar@^3.5.3:
   version "3.5.3"
   resolved "https://registry.yarnpkg.com/chokidar/-/chokidar-3.5.3.tgz#1cf37c8707b932bd1af1ae22c0432e2acd1903bd"
   integrity sha512-Dr3sfKRP6oTcjf2JmUmFJfeVMvXBdegxB0iVQ5eb2V10uFJUCAS8OByZdVAyVb8xXNz3GjjTgj9kLWsZTqE6kw==
@@ -3656,6 +3656,11 @@ immediate@~3.0.5:
   resolved "https://registry.yarnpkg.com/immediate/-/immediate-3.0.6.tgz#9db1dbd0faf8de6fbe0f5dd5e56bb606280de69b"
   integrity sha512-XXOFtyqDjNDAQxVfYxuF7g9Il/IbWmmlQg2MYKOH8ExIT1qg6xc4zyS3HaEEATgs1btfzxq15ciUiY7gjSXRGQ==
 
+immutable@^4.0.0:
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/immutable/-/immutable-4.1.0.tgz#f795787f0db780183307b9eb2091fcac1f6fafef"
+  integrity sha512-oNkuqVTA8jqG1Q6c+UglTOD1xhC1BtjKI7XkCXRkZHrN5m18/XsnUp8Q89GkQO/z+0WjonSvl0FLhDYftp46nQ==
+
 import-fresh@^3.0.0, import-fresh@^3.2.1:
   version "3.3.0"
   resolved "https://registry.yarnpkg.com/import-fresh/-/import-fresh-3.3.0.tgz#37162c25fcb9ebaa2e6e53d5b4d88ce17d9e0c2b"
@@ -4326,6 +4331,11 @@ make-dir@^3.1.0, make-dir@~3.1.0:
   integrity sha512-g3FeP20LNwhALb/6Cz6Dd4F2ngze0jz7tbzrD2wAV+o9FeNHe4rL+yK2md0J/fiSf1sa1ADhXqi5+oVwOM/eGw==
   dependencies:
     semver "^6.0.0"
+
+mdi@^2.2.43:
+  version "2.2.43"
+  resolved "https://registry.yarnpkg.com/mdi/-/mdi-2.2.43.tgz#c5e419a6e5f48c82c7109328f52530fd187a0ec0"
+  integrity sha512-g3m6z4303qieltUM20JL2gdsJZvoVzIzO74qa2XxZ2kg9JPwrPEAgooVhRDHZi1vvRh0gB8Dg+c9XqNdz4jcIg==
 
 mdn-data@2.0.14:
   version "2.0.14"
@@ -5705,6 +5715,15 @@ safe-regex@^2.1.1:
   resolved "https://registry.yarnpkg.com/safer-buffer/-/safer-buffer-2.1.2.tgz#44fa161b0187b9549dd84bb91802f9bd8385cd6a"
   integrity sha512-YZo3K82SD7Riyi0E1EQPojLz7kpepnSQI9IyPbHHg1XXXevb5dJI7tpyN2ADxGcQbHG7vcyRHk0cbwqcQriUtg==
 
+sass@^1.54.9:
+  version "1.54.9"
+  resolved "https://registry.yarnpkg.com/sass/-/sass-1.54.9.tgz#b05f14ed572869218d1a76961de60cd647221762"
+  integrity sha512-xb1hjASzEH+0L0WI9oFjqhRi51t/gagWnxLiwUNMltA0Ab6jIDkAacgKiGYKM9Jhy109osM7woEEai6SXeJo5Q==
+  dependencies:
+    chokidar ">=3.0.0 <4.0.0"
+    immutable "^4.0.0"
+    source-map-js ">=0.6.2 <2.0.0"
+
 scule@^0.2.1:
   version "0.2.1"
   resolved "https://registry.yarnpkg.com/scule/-/scule-0.2.1.tgz#0c1dc847b18e07219ae9a3832f2f83224e2079dc"
@@ -5877,7 +5896,7 @@ slice-ansi@^4.0.0:
     astral-regex "^2.0.0"
     is-fullwidth-code-point "^3.0.0"
 
-source-map-js@^1.0.2:
+"source-map-js@>=0.6.2 <2.0.0", source-map-js@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/source-map-js/-/source-map-js-1.0.2.tgz#adbc361d9c62df380125e7f161f71c826f1e490c"
   integrity sha512-R0XvVJ9WusLiqTCEiGCmICCMplcCkIwwR11mOSD9CR5u+IXYdiseeEuXCVAjS54zqwkLcPNnmU4OeJ6tUrWhDw==
@@ -6625,11 +6644,6 @@ vue-eslint-parser@^8.0.1:
     lodash "^4.17.21"
     semver "^7.3.5"
 
-vue-material-design-icons@^5.1.2:
-  version "5.1.2"
-  resolved "https://registry.yarnpkg.com/vue-material-design-icons/-/vue-material-design-icons-5.1.2.tgz#d0b9227786672fc17be239fb8c1d8e22e33feb45"
-  integrity sha512-nD1qFM2qAkMlVoe23EfNKIeMfYl6YjHZjSty9q0mwc2gXmPmvEhixywJQhM+VF5KVBI1zAkVTNLoUEERPY10pA==
-
 vue-router@^4.0.16:
   version "4.0.16"
   resolved "https://registry.yarnpkg.com/vue-router/-/vue-router-4.0.16.tgz#9477beeeef36e80e04d041a1738801a55e6e862e"
@@ -6648,10 +6662,10 @@ vue@^3.2.37:
     "@vue/server-renderer" "3.2.37"
     "@vue/shared" "3.2.37"
 
-vuetify@^2.6.10:
-  version "2.6.10"
-  resolved "https://registry.yarnpkg.com/vuetify/-/vuetify-2.6.10.tgz#b86cd7a97bf8cd3828a72c349795b5b3c539ebc2"
-  integrity sha512-fgUeRDDCwYkwu6WGEEKGe7IdfzOsXJCZGrqkn1pcS2ycuoDL8mR2/dejH5iFNnBY6MnsT365PAGn0J+9otjfQg==
+vuetify@^3.0.0-beta.11:
+  version "3.0.0-beta.11"
+  resolved "https://registry.yarnpkg.com/vuetify/-/vuetify-3.0.0-beta.11.tgz#069e5583ef2eb2c56f6d1a47977e926cfcc0dcb7"
+  integrity sha512-WHwHNRpnDZ2ZUaOlL3oSnIvVSz0kVLmF/OVQUupIYvgV8pERgFN2NtXN5E3bq/DQkMyYcEUcnSQIrzQs2aZ36A==
 
 wcwidth@^1.0.1:
   version "1.0.1"
