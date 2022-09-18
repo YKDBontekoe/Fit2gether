@@ -1,6 +1,4 @@
-// @ts-ignore
 import { defineNuxtConfig } from 'nuxt'
-import vuetify from './src/plugins/vuetify'
 
 export default defineNuxtConfig({
   head: {
@@ -11,35 +9,26 @@ export default defineNuxtConfig({
       { name: 'format-detection', content: 'telephone=no' },
     ],
     link: [
-      // { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      {
+        rel: 'stylesheet',
+        href: 'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons',
+      },
     ],
   },
   alias: {
     '~/*': './*',
   },
-  modules: [
-    // @ts-ignore
-    // this adds the vuetify vite plugin
-    // also produces type errors in the current beta release
-    // eslint-disable-next-line require-await,@typescript-eslint/no-unused-vars
-    async (options, nuxt) => {
-      nuxt.hooks.hook('vite:extendConfig', (config) =>
-        config.plugins.push(vuetify)
-      )
-    },
-  ],
   runtimeConfig: {
     public: {
       publicUrl: process.env.PUBLIC_URL,
     },
   },
-  srcDir: './src/',
-  css: ['vuetify/styles', 'mdi/css/materialdesignicons.min.css'],
+  css: ['vuetify/styles'],
+  build: {
+    transpile: ['vuetify'],
+  },
   vite: {
-    // @ts-ignore
-    ssr: {
-      noExternal: ['vuetify'], // add the vuetify vite plugin
-    },
     define: {
       'process.env.DEBUG': false,
     },
