@@ -24,10 +24,8 @@ export default defineNuxtConfig({
       publicUrl: process.env.PUBLIC_URL,
     },
   },
-  css: ['vuetify/styles'],
-  build: {
-    transpile: ['vuetify'],
-  },
+  modules: ['bootstrap-vue-3/nuxt'],
+  srcDir: 'src',
   vite: {
     define: {
       'process.env.DEBUG': false,

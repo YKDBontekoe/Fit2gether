@@ -1,13 +1,12 @@
 <template>
-  <v-app>
-    <default-layout />
-  </v-app>
+  <index />
 </template>
 
 <script lang="ts" setup></script>
 <script>
 import DefaultLayout from './layouts/default-layout'
+import Index from './pages'
 export default {
-  components: { DefaultLayout },
+  components: { Index, DefaultLayout },
 }
 </script>
