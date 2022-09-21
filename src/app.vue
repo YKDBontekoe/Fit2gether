@@ -1,14 +1,17 @@
 <template>
   <DefaultLayout>
-    <index />
+    <Home />
   </DefaultLayout>
 </template>
 
 <script lang="ts" setup></script>
 <script>
 import DefaultLayout from './layouts/default-layout'
-import Index from './pages'
+import Home from './pages/home'
 export default {
-  components: { Index, DefaultLayout },
+  components: { Home, DefaultLayout },
+  created() {
+    this.$router.push('/home').then()
+  },
 }
 </script>
