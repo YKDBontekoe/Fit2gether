@@ -30,13 +30,13 @@
         "nuxt": "npm:nuxt3@latest",
         "postcss": "^8.3.11",
         "prettier": "^2.4.1",
+        "sass-loader": "^13.0.2",
         "typescript": "^4.4.4"
     },
     "dependencies": {
         "@nuxtjs/eslint-config": "^10.0.0",
         "@popperjs/core": "^2.11.6",
         "bootstrap": "^5.2.1",
-        "bootstrap-vue-3": "^0.3.3",
         "firebase": "^9.8.4",
         "sass": "^1.54.9",
         "vue": "^3.2.39"

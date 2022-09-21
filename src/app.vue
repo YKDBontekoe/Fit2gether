@@ -1,5 +1,7 @@
 <template>
-  <index />
+  <DefaultLayout>
+    <index />
+  </DefaultLayout>
 </template>
 
 <script lang="ts" setup></script>

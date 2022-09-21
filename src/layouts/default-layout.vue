@@ -1,6 +1,7 @@
 <template>
   <div>
     <v-nav-bar />
+    <RouterView></RouterView>
   </div>
 </template>
 <script lang="ts" setup></script>
