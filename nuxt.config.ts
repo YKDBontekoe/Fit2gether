@@ -1,6 +1,11 @@
 import { defineNuxtConfig } from 'nuxt'
 
 export default defineNuxtConfig({
+  target: 'static',
+  ssr: false,
+  router: {
+    base: '/Fit2gether/',
+  },
   head: {
     meta: [
       { charset: 'utf-8' },
@@ -24,10 +29,8 @@ export default defineNuxtConfig({
       publicUrl: process.env.PUBLIC_URL,
     },
   },
-  css: ['vuetify/styles'],
-  build: {
-    transpile: ['vuetify'],
-  },
+  srcDir: 'src',
+  css: ['~/assets/styles/main.scss', '~/assets/styles/nav-style.css'],
   vite: {
     define: {
       'process.env.DEBUG': false,

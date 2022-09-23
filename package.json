@@ -10,13 +10,16 @@
         "lint:js": "eslint --ext \".js,.ts,.vue\" --ignore-path .gitignore .",
         "lint": "yarn lint:js",
         "format": "prettier --write .",
-        "format-check": "prettier -- --list-different"
+        "format-check": "prettier -- --list-different",
+        "deploy": "push-dir --dir=dist --branch=gh-pages --cleanup"
     },
     "devDependencies": {
         "@babel/eslint-parser": "^7.15.8",
         "@fontsource/work-sans": "^4.5.1",
         "@headlessui/vue": "^1.4.1",
         "@iconify-json/heroicons-solid": "^1.0.1",
+        "@nuxt/kit": "^3.0.0-rc.10",
+        "@nuxt/vite-builder": "^3.0.0-rc.10",
         "@nuxtjs/eslint-config-typescript": "^10.0.0",
         "autoprefixer": "^10.3.7",
         "eslint": "^8.19.0",
@@ -28,13 +31,17 @@
         "nuxt": "npm:nuxt3@latest",
         "postcss": "^8.3.11",
         "prettier": "^2.4.1",
+        "push-dir": "^0.4.1",
+        "sass-loader": "^13.0.2",
         "typescript": "^4.4.4"
     },
     "dependencies": {
         "@nuxtjs/eslint-config": "^10.0.0",
+        "@popperjs/core": "^2.11.6",
+        "bootstrap": "^5.2.1",
         "firebase": "^9.8.4",
         "sass": "^1.54.9",
-        "vuetify": "^3.0.0-beta.11"
+        "vue": "^3.2.39"
     },
     "husky": {
         "hooks": {
