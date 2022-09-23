@@ -25,7 +25,7 @@ export default defineNuxtConfig({
     },
   },
   srcDir: 'src',
-  css: ['~/assets/styles/main.scss'],
+  css: ['~/assets/styles/main.scss', '~/assets/styles/nav-style.css'],
   vite: {
     define: {
       'process.env.DEBUG': false,
