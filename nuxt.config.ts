@@ -4,7 +4,7 @@ export default defineNuxtConfig({
   target: 'static',
   ssr: false,
   router: {
-    base: '/Fit2gether/',
+    base: '/',
   },
   head: {
     meta: [

@@ -10,8 +10,5 @@ import DefaultLayout from './layouts/default-layout'
 import Home from './pages/home'
 export default {
   components: { Home, DefaultLayout },
-  created() {
-    this.$router.push('/home').then()
-  },
 }
 </script>
