@@ -1,6 +1,11 @@
 import { defineNuxtConfig } from 'nuxt'
 
 export default defineNuxtConfig({
+  target: 'static',
+  ssr: false,
+  router: {
+    base: '/Fit2gether/',
+  },
   head: {
     meta: [
       { charset: 'utf-8' },
