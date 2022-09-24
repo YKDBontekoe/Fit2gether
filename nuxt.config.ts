@@ -2,9 +2,11 @@ import { defineNuxtConfig } from 'nuxt'
 
 export default defineNuxtConfig({
   target: 'static',
-  ssr: false,
   router: {
-    base: '/',
+    base: '/Fit2gether/',
+  },
+  generate: {
+    fallback: '404.html',
   },
   head: {
     meta: [
