@@ -8,7 +8,6 @@ nuxt.d.ts
 
 .env
 .env.local
-yarn.lock
 **/firebase-debug.log
 **/package-lock.json
 # keep the root package-lock so that tools are consistent
