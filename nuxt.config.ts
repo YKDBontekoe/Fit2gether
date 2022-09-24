@@ -1,13 +1,6 @@
 import { defineNuxtConfig } from 'nuxt'
 
 export default defineNuxtConfig({
-  target: 'static',
-  router: {
-    base: '/Fit2gether/',
-  },
-  generate: {
-    fallback: '404.html',
-  },
   head: {
     meta: [
       { charset: 'utf-8' },
@@ -30,6 +23,12 @@ export default defineNuxtConfig({
     public: {
       publicUrl: process.env.PUBLIC_URL,
     },
+  },
+  router: {
+    base: '/Fit2gether/',
+  },
+  generate: {
+    fallback: '404.html',
   },
   srcDir: 'src',
   css: ['~/assets/styles/main.scss', '~/assets/styles/nav-style.css'],
