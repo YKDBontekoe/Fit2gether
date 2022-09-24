@@ -1,6 +1,7 @@
 import { defineNuxtConfig } from 'nuxt'
 
 export default defineNuxtConfig({
+  mode: 'spa',
   head: {
     meta: [
       { charset: 'utf-8' },
