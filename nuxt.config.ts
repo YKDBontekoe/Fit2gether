@@ -7,6 +7,7 @@ export default defineNuxtConfig({
   },
   generate: {
     fallback: '/index.html',
+    nojekyll: true,
   },
   head: {
     meta: [
