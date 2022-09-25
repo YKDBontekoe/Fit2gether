@@ -12,7 +12,7 @@
         "format": "prettier --write .",
         "format-check": "prettier -- --list-different",
         "deploy": "push-dir --dir=dist --branch=gh-pages --cleanup",
-        "generate&deploy": "yarn generate && cd ./dist/ > .nojekyll && cd ../ && git add . && git commit -m\"release\" && git stash && yarn deploy"
+        "generate&deploy": "yarn generate && cd ./dist/ && cd . > .nojekyll && cd ../ && git add . && git commit -m\"release\" && git stash && yarn deploy"
     },
     "devDependencies": {
         "@babel/eslint-parser": "^7.15.8",
