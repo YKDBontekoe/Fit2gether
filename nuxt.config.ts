@@ -5,6 +5,9 @@ export default defineNuxtConfig({
   router: {
     base: '/Fit2gether/',
   },
+  generate: {
+    fallback: '/home/index.html',
+  },
   head: {
     meta: [
       { charset: 'utf-8' },
