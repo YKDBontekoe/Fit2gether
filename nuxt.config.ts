@@ -2,8 +2,8 @@ import { defineNuxtConfig } from 'nuxt'
 
 export default defineNuxtConfig({
   mode: 'spa',
-  router: {
-    base: '/Fit2gether/',
+  app: {
+    baseURL: '/Fit2gether',
   },
   generate: {
     fallback: '/index.html',
