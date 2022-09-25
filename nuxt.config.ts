@@ -1,12 +1,12 @@
 import { defineNuxtConfig } from 'nuxt'
 
 export default defineNuxtConfig({
-  mode: 'spa',
+  ssr: false,
   router: {
-    base: '/Fit2gether/',
+    base: './',
   },
   generate: {
-    fallback: '/home/index.html',
+    fallback: '/index.html',
   },
   head: {
     meta: [
@@ -32,6 +32,7 @@ export default defineNuxtConfig({
     },
   },
   srcDir: 'src',
+  components: true,
   css: ['~/assets/styles/main.scss', '~/assets/styles/nav-style.css'],
   vite: {
     define: {
