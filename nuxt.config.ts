@@ -15,13 +15,6 @@ export default defineNuxtConfig({
       { hid: 'description', name: 'description', content: '' },
       { name: 'format-detection', content: 'telephone=no' },
     ],
-    link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      {
-        rel: 'stylesheet',
-        href: 'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons',
-      },
-    ],
   },
   alias: {
     '~/*': './*',
@@ -33,7 +26,11 @@ export default defineNuxtConfig({
   },
   srcDir: 'src',
   components: true,
-  css: ['~/assets/styles/main.scss', '~/assets/styles/nav-style.css'],
+  css: [
+    '~/assets/styles/main.scss',
+    '~/assets/styles/main.css',
+    '@mdi/font/css/materialdesignicons.min.css',
+  ],
   vite: {
     define: {
       'process.env.DEBUG': false,

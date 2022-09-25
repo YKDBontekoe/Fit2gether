@@ -1,64 +1,40 @@
 <template>
-  <div>
-    <div class="site-mobile-menu">
-      <div class="site-mobile-menu-header">
-        <div class="site-mobile-menu-close mt-3">
-          <span class="icon-close2 js-menu-toggle"></span>
-        </div>
-      </div>
-      <div class="site-mobile-menu-body"></div>
-    </div>
-
-    <header class="site-navbar" role="banner">
-      <div class="container">
-        <div class="row align-items-center">
-          <div class="col-11 col-xl-2">
-            <h1 class="mb-0 site-logo">
-              <NuxtLink to="/" class="mb-0">Fit 2 Gether</NuxtLink>
-            </h1>
-          </div>
-          <div class="col-12 col-md-10 d-none d-xl-block">
-            <nav
-              class="site-navigation position-relative text-right"
-              role="navigation"
+  <nav class="navbar navbar-dark bg-primary bg-opacity-60 navbar-expand-lg">
+    <div class="container container-fluid">
+      <NuxtLink class="navbar-brand" to="/">
+        Fit <span class="mdi mdi-heart" /> Together</NuxtLink
+      >
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navContent"
+        aria-controls="navContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div id="navContent" class="collapse navbar-collapse">
+        <ul class="navbar-nav mb-2 mb-lg-0">
+          <li class="nav-item">
+            <NuxtLink class="nav-link active" to="/">Home</NuxtLink>
+          </li>
+          <li class="nav-item">
+            <NuxtLink class="nav-link" to="/explain"
+              >How does it work?</NuxtLink
             >
-              <ul class="site-menu js-clone-nav mr-auto d-none d-lg-block">
-                <li>
-                  <NuxtLink to="/" class="text-primary fw-bold"
-                    ><span>Home</span></NuxtLink
-                  >
-                </li>
-                <li>
-                  <NuxtLink to="/explain" class="text-primary fw-bold"
-                    ><span>How does it work?</span></NuxtLink
-                  >
-                </li>
-                <li>
-                  <NuxtLink to="/about" class="text-primary fw-bold"
-                    ><span>About</span></NuxtLink
-                  >
-                </li>
-                <li>
-                  <NuxtLink to="/privacy" class="text-primary fw-bold"
-                    ><span>Privacy</span></NuxtLink
-                  >
-                </li>
-              </ul>
-            </nav>
-          </div>
-
-          <div
-            class="d-inline-block d-xl-none ml-md-0 mr-auto py-3"
-            style="position: relative; top: 3px"
-          >
-            <a href="#" class="site-menu-toggle js-menu-toggle text-white"
-              ><span class="icon-menu h3"></span
-            ></a>
-          </div>
-        </div>
+          </li>
+          <li class="nav-item">
+            <NuxtLink class="nav-link" to="/about">About</NuxtLink>
+          </li>
+          <li class="nav-item">
+            <NuxtLink class="nav-link" to="/privacy">Privacy</NuxtLink>
+          </li>
+        </ul>
       </div>
-    </header>
-  </div>
+    </div>
+  </nav>
 </template>
 
 <script></script>
