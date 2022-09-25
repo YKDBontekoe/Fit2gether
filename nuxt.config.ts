@@ -1,7 +1,7 @@
 export default {
   mode: 'spa',
   app: {
-    baseURL: '/Fit2gether/dist/',
+    baseURL: '/Fit2gether/',
   },
   head: {
     meta: [
