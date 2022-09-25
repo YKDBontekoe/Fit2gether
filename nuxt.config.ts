@@ -3,7 +3,7 @@ import { defineNuxtConfig } from 'nuxt'
 export default defineNuxtConfig({
   ssr: false,
   router: {
-    base: './',
+    base: '/Fit2gether/',
   },
   generate: {
     fallback: '/index.html',
