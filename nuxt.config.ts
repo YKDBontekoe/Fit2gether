@@ -1,13 +1,12 @@
 import { defineNuxtConfig } from 'nuxt'
 
 export default defineNuxtConfig({
-  ssr: false,
+  mode: 'spa',
   router: {
     base: '/Fit2gether/',
   },
   generate: {
     fallback: '/index.html',
-    nojekyll: true,
   },
   head: {
     meta: [
