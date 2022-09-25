@@ -1,14 +1,9 @@
 <template>
-  <DefaultLayout>
-    <Home />
-  </DefaultLayout>
+  <NuxtLayout>
+    <NuxtPage />
+  </NuxtLayout>
 </template>
 
-<script lang="ts" setup></script>
 <script>
-import DefaultLayout from './layouts/default-layout'
-import Home from './pages/home'
-export default {
-  components: { Home, DefaultLayout },
-}
+export default {}
 </script>

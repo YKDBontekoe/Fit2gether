@@ -14,7 +14,7 @@
         <div class="row align-items-center">
           <div class="col-11 col-xl-2">
             <h1 class="mb-0 site-logo">
-              <NuxtLink to="/home" class="mb-0">Fit 2 Gether</NuxtLink>
+              <NuxtLink to="/" class="mb-0">Fit 2 Gether</NuxtLink>
             </h1>
           </div>
           <div class="col-12 col-md-10 d-none d-xl-block">
@@ -24,7 +24,7 @@
             >
               <ul class="site-menu js-clone-nav mr-auto d-none d-lg-block">
                 <li>
-                  <NuxtLink to="/home" class="text-primary fw-bold"
+                  <NuxtLink to="/" class="text-primary fw-bold"
                     ><span>Home</span></NuxtLink
                   >
                 </li>

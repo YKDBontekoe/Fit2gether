@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-nav-bar />
-    <RouterView></RouterView>
+    <slot />
   </div>
 </template>
 <script lang="ts" setup></script>

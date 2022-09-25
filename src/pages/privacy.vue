@@ -2,7 +2,7 @@
 
 <script>
 export default {
-  name: 'Privacy',
+  name: 'PrivacyPage',
 }
 </script>
 
