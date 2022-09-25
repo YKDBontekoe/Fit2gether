@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="container">
-      <img src="../assets/images/main-page-background.jpg" />
+      <img src="@/assets/images/main-page-background.jpg" />
       <div class="move-to-middle">
         <button class="btn bg-primary">
           <span class="">Check your heart condition</span>

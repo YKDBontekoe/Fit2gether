@@ -1,12 +1,7 @@
-import { defineNuxtConfig } from 'nuxt'
-
-export default defineNuxtConfig({
+export default {
   mode: 'spa',
   app: {
-    baseURL: '/Fit2gether',
-  },
-  generate: {
-    fallback: '/index.html',
+    baseURL: '/Fit2gether/dist/',
   },
   head: {
     meta: [
@@ -25,10 +20,9 @@ export default defineNuxtConfig({
     },
   },
   srcDir: 'src',
-  components: true,
   css: [
-    '~/assets/styles/main.scss',
-    '~/assets/styles/main.css',
+    '@/assets/styles/main.scss',
+    '@/assets/styles/styles.css',
     '@mdi/font/css/materialdesignicons.min.css',
   ],
   vite: {
@@ -36,4 +30,4 @@ export default defineNuxtConfig({
       'process.env.DEBUG': false,
     },
   },
-})
+}

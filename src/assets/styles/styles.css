@@ -3,13 +3,11 @@
   width: 80%;
 }
 
-/* Make the image responsive */
 .container img {
   width: 100%;
   height: auto;
 }
 
-/* Style the button and place it in the middle of the container/image */
 .move-to-middle {
   position: absolute;
   top: 50%;
