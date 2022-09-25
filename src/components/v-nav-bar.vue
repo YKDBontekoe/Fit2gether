@@ -21,15 +21,15 @@
             <NuxtLink class="nav-link active" to="/">Home</NuxtLink>
           </li>
           <li class="nav-item">
-            <NuxtLink class="nav-link" to="/explain"
+            <NuxtLink class="nav-link active" to="/explain"
               >How does it work?</NuxtLink
             >
           </li>
           <li class="nav-item">
-            <NuxtLink class="nav-link" to="/about">About</NuxtLink>
+            <NuxtLink class="nav-link active" to="/about">About</NuxtLink>
           </li>
           <li class="nav-item">
-            <NuxtLink class="nav-link" to="/privacy">Privacy</NuxtLink>
+            <NuxtLink class="nav-link active" to="/privacy">Privacy</NuxtLink>
           </li>
         </ul>
       </div>

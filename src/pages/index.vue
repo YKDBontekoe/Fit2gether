@@ -3,9 +3,9 @@
     <div class="container">
       <img src="@/assets/images/main-page-background.jpg" />
       <div class="move-to-middle">
-        <button class="btn bg-primary">
-          <span class="">Check your heart condition</span>
-        </button>
+        <NuxtLink to="/check" class="btn bg-primary">
+          <span class="h4">Check your heart condition</span>
+        </NuxtLink>
       </div>
     </div>
     <div class="justify-content-center row">
