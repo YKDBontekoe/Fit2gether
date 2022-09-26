@@ -7,29 +7,38 @@
     <input type="text" name="gplus" placeholder="Google Plus" />
     <input
       type="button"
-      name="previous"
-      class="previous action-button-previous"
       value="Previous"
+      class="previous action-button-previous"
+      @click="$emit('update:previousModelValue', previousForm)"
     />
     <input
       type="button"
-      name="next"
-      class="next action-button bg-primary"
       value="Next"
-    />
-    <input
-      type="submit"
-      name="submit"
-      class="submit action-button"
-      value="Submit"
+      class="next action-button bg-primary"
+      @click="$emit('update:nextModelValue', nextForm)"
     />
   </fieldset>
 </template>
 
 <script lang="ts">
+import { FormStages } from '@/types/enums/FormStages';
+
 export default {
   name: 'VCheckHealthForm',
-}
+  props: {
+    nextModelValue: { type: Boolean, default: false },
+    previousModelValue: { type: Boolean, default: false },
+  },
+  emits: ['update:nextModelValue', 'update:previousModelValue'],
+  computed: {
+    nextForm() {
+      return FormStages.Result;
+    },
+    previousForm() {
+      return FormStages.Personal;
+    },
+  },
+};
 </script>
 
 <style scoped></style>

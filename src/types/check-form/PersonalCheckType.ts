@@ -1,4 +1,4 @@
-type PersonalCheckType = {
+export type PersonalCheckType = {
   firstName: string;
   lastName: string;
   emailAddress: string;

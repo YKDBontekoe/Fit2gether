@@ -1,3 +1,3 @@
-type HealthCheckType = {
+export type HealthCheckType = {
   bmi: number;
-}
+};

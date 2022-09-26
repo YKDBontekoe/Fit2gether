@@ -3,7 +3,7 @@
     <div class="container">
       <img src="@/assets/images/main-page-background.jpg" />
       <div class="move-to-middle">
-        <NuxtLink to="/check" class="btn bg-primary">
+        <NuxtLink to="/check" class="btn bg-primary rounded-3">
           <span class="h4">Check your heart condition</span>
         </NuxtLink>
       </div>
@@ -62,7 +62,7 @@
 <script>
 export default {
   name: 'IndexPage',
-}
+};
 </script>
 
 <style scoped></style>

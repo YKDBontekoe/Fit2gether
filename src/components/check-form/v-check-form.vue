@@ -1,32 +1,75 @@
 <template>
   <form id="msform">
-    <VCheckProgressBar />
-    <VCheckPersonalForm />
-    <VCheckHealthForm />
+    <VCheckProgressBar current-form="currentForm" />
+    <VCheckPersonalForm
+      v-if="currentForm === getPersonalFormName"
+      :first-name-model-value="formData.personal.firstName"
+      :last-name-model-value="formData.personal.lastName"
+      :email-address-model-value="formData.personal.emailAddress"
+      :next-model-value="nextModel"
+    />
+    <VCheckHealthForm
+      v-if="currentForm === getHealthFormName"
+      :next-model-value="nextModel"
+      :previous-model-value="nextModel"
+    />
+    <VCheckResultForm v-if="currentForm === getResultFormName" />
   </form>
 </template>
 
 <script lang="ts">
-import VCheckPersonalForm from './v-check-personal-form'
-import VCheckHealthForm from './v-check-health-form'
-import VCheckProgressBar from './v-check-progress-bar'
-import FormEmittersEnum from '../../types/enums/FormEmittersEnum'
+import VCheckHealthForm from '@/components/check-form/v-check-health-form.vue';
+import VCheckPersonalForm from '@/components/check-form/v-check-personal-form.vue';
+import VCheckProgressBar from '@/components/check-form/v-check-progress-bar.vue';
+import VCheckResultForm from '@/components/check-form/v-check-result-form.vue';
+import { FormStages } from '@/types/enums/FormStages';
+
 export default {
   name: 'VCheckForm',
-  components: { VCheckProgressBar, VCheckHealthForm, VCheckPersonalForm },
-  data(){
-    return{
-      formData: ''
-    }
+  components: {
+    VCheckResultForm,
+    VCheckProgressBar,
+    VCheckHealthForm,
+    VCheckPersonalForm,
   },
-  created() {
-    this.$on(FormEmittersEnum.PersonalEmitData, this.personalDataRetrieved)
+  data() {
+    return {
+      formData: {
+        personal: {},
+        health: {},
+      },
+      currentForm: FormStages.Personal.toString(),
+      nextModel: '',
+      previousModel: '',
+    };
+  },
+  computed: {
+    getPersonalFormName() {
+      return FormStages.Personal;
+    },
+    getHealthFormName() {
+      return FormStages.Health;
+    },
+    getResultFormName() {
+      return FormStages.Result;
+    },
+  },
+  watch: {
+    nextModel: {
+      handler(val) {
+        this.currentForm = val;
+      },
+    },
+    previousModel: {
+      handler(val) {
+        this.currentForm = val;
+      },
+    },
   },
   methods: {
-    personalDataRetrieved(data: PersonalCheckType){
-      this.formData.personalData = data;
-      console.log(data)
-    }
+    showForm(formName) {
+      return !this.formData[formName][formName + 'DataSubmitted'];
+    },
   },
-}
+};
 </script>
