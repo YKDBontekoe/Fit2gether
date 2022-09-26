@@ -12,7 +12,7 @@ import { FormStages } from '@/types/enums/FormStages';
 export default {
   name: 'VCheckProgressBar',
   props: {
-    currentForm: { type: String, default: FormStages.Personal },
+    currentForm: { type: String, default: '' },
   },
   computed: {
     isHealth() {

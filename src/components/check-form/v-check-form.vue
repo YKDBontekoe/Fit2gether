@@ -1,20 +1,27 @@
 <template>
-  <form id="msform">
-    <VCheckProgressBar current-form="currentForm" />
-    <VCheckPersonalForm
-      v-if="currentForm === getPersonalFormName"
-      :first-name-model-value="formData.personal.firstName"
-      :last-name-model-value="formData.personal.lastName"
-      :email-address-model-value="formData.personal.emailAddress"
-      :next-model-value="nextModel"
-    />
-    <VCheckHealthForm
-      v-if="currentForm === getHealthFormName"
-      :next-model-value="nextModel"
-      :previous-model-value="nextModel"
-    />
-    <VCheckResultForm v-if="currentForm === getResultFormName" />
-  </form>
+  <div
+    :style="{
+      backgroundImage:
+        'url(' + require('@/assets/images/check-page-background.jpg') + ')',
+    }"
+  >
+    <form id="msform">
+      <VCheckProgressBar v-model:current-form="currentForm" />
+      <VCheckPersonalForm
+        v-if="isPersonalFormName"
+        v-model:next-model-value="nextModel"
+        :first-name-model-value="formData.personal.firstName"
+        :last-name-model-value="formData.personal.lastName"
+        :email-address-model-value="formData.personal.emailAddress"
+      />
+      <VCheckHealthForm
+        v-if="isHealthFormName"
+        v-model:next-model-value="nextModel"
+        v-model:previous-model-value="previousModel"
+      />
+      <VCheckResultForm v-if="isResultFormName" />
+    </form>
+  </div>
 </template>
 
 <script lang="ts">
@@ -38,37 +45,28 @@ export default {
         personal: {},
         health: {},
       },
-      currentForm: FormStages.Personal.toString(),
+      currentForm: FormStages.Personal,
       nextModel: '',
       previousModel: '',
     };
   },
   computed: {
-    getPersonalFormName() {
-      return FormStages.Personal;
+    isPersonalFormName() {
+      return FormStages.Personal === this.currentForm;
     },
-    getHealthFormName() {
-      return FormStages.Health;
+    isHealthFormName() {
+      return FormStages.Health === this.currentForm;
     },
-    getResultFormName() {
-      return FormStages.Result;
+    isResultFormName() {
+      return FormStages.Result === this.currentForm;
     },
   },
   watch: {
-    nextModel: {
-      handler(val) {
-        this.currentForm = val;
-      },
+    nextModel(val) {
+      this.currentForm = val;
     },
-    previousModel: {
-      handler(val) {
-        this.currentForm = val;
-      },
-    },
-  },
-  methods: {
-    showForm(formName) {
-      return !this.formData[formName][formName + 'DataSubmitted'];
+    previousModel(val) {
+      this.currentForm = val;
     },
   },
 };

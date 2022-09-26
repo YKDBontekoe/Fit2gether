@@ -40,7 +40,7 @@ export default {
     firstNameModelValue: { type: String, default: '' },
     lastNameModelValue: { type: String, default: '' },
     emailAddressModelValue: { type: String, default: '' },
-    nextModelValue: { type: Boolean, default: false },
+    nextModelValue: { type: String, default: '' },
   },
   emits: [
     'update:firstNameModelValue',
