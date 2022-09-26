@@ -1,0 +1,3 @@
+type HealthCheckType = {
+  bmi: number;
+}

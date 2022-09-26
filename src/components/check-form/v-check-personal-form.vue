@@ -33,7 +33,7 @@ export default {
         emailAddress: this.emailAddress
       };
 
-      this.$emit('personalCheckFormData', personalData);
+      this.$emit(FormEmittersEnum.PersonalEmitData, personalData);
     },
   },
 }
