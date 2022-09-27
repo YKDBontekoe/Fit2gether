@@ -1,5 +1,6 @@
 export default {
   mode: 'spa',
+  ssr: false,
   app: {
     baseURL: '/Fit2gether/',
   },
@@ -30,4 +31,4 @@ export default {
       'process.env.DEBUG': false,
     },
   },
-}
+};
