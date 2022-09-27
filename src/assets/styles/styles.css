@@ -179,9 +179,15 @@
   content: none;
 }
 
-/*marking active/completed steps blue*/
 /*The number of the step and the connector before it = blue*/
 #progressbar li.active:before, #progressbar li.active:after {
   background: #F47174;
   color: white;
+  animation-name: progress-bar-anim;
+  animation-duration: 2s;
+}
+
+@keyframes progress-bar-anim {
+  from { background: #d3d3d3}
+  to { background: #F47174 }
 }
