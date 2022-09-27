@@ -1,10 +1,5 @@
 <template>
-  <div
-    :style="{
-      backgroundImage:
-        'url(' + require('@/assets/images/check-page-background.jpg') + ')',
-    }"
-  >
+  <div>
     <form id="msform">
       <VCheckProgressBar v-model:current-form="currentForm" />
       <VCheckPersonalForm
