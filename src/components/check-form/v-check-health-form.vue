@@ -174,15 +174,11 @@
         </div>
       </div>
       <div class="col order-1">
-        <label for="BMI">Body Mass Index (BMI)</label>
-        <input id="BMI" type="number" name="BMI (Body Mass Index)" required />
-
         <label for="GenHlth"
           >Would you say that in general your health is</label
         >
         <input id="GenHlth" type="number" name="General Health" required />
 
-        <!--    -->
         <label for="MentHlth"
           >Now thinking about your mental health, which includes stress,
           depression, and problems with emotions, for how many days during the
@@ -196,31 +192,24 @@
           physical health not good?</label
         >
         <input id="PhysHlth" type="number" name="Physical Health" required />
-
-        <label for="Age">Age</label>
-        <input id="Age" type="number" name="Age" required />
       </div>
     </div>
-    <input
-      type="button"
-      value="Previous"
-      class="previous action-button-previous"
-      @click="$emit('update:previousModelValue', previousForm)"
-    />
-    <input
-      type="button"
-      value="Next"
-      class="next action-button bg-primary"
-      @click="$emit('update:nextModelValue', nextForm)"
+    <VCheckStateHandler
+      v-model:next-model-value="nextChildModelValue"
+      v-model:previous-model-value="previousChildModelValue"
+      :next-form="nextForm"
+      :previous-form="previousForm"
     />
   </fieldset>
 </template>
 
 <script lang="ts">
 import { FormStages } from '@/types/enums/FormStages';
+import VCheckStateHandler from '@/components/check-form/shared/v-check-state-handler.vue';
 
 export default {
   name: 'VCheckHealthForm',
+  components: { VCheckStateHandler },
   props: {
     nextModelValue: { type: String, default: '' },
     previousModelValue: {
@@ -229,12 +218,26 @@ export default {
     },
   },
   emits: ['update:nextModelValue', 'update:previousModelValue'],
+  data() {
+    return {
+      nextChildModelValue: '',
+      previousChildModelValue: '',
+    };
+  },
   computed: {
     nextForm() {
       return FormStages.Result;
     },
     previousForm() {
-      return FormStages.Personal;
+      return FormStages.General;
+    },
+  },
+  watch: {
+    nextChildModelValue(val) {
+      this.$emit('update:nextModelValue', val);
+    },
+    previousChildModelValue(val) {
+      this.$emit('update:previousModelValue', val);
     },
   },
 };

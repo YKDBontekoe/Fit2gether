@@ -21,21 +21,21 @@
       @input="$emit('update:emailAddressModelValue', $event.target.value)"
     />
 
-    <input
-      type="button"
-      name="next"
-      class="next action-button bg-primary"
-      value="Next"
-      @click="$emit('update:nextModelValue', nextForm)"
+    <VCheckStateHandler
+      v-model:next-model-value="nextChildModelValue"
+      :has-previous="false"
+      :next-form="nextForm"
     />
   </fieldset>
 </template>
 
 <script lang="ts">
 import { FormStages } from '@/types/enums/FormStages';
+import VCheckStateHandler from '@/components/check-form/shared/v-check-state-handler.vue';
 
 export default {
   name: 'VCheckPersonalForm',
+  components: { VCheckStateHandler },
   props: {
     firstNameModelValue: { type: String, default: '' },
     lastNameModelValue: { type: String, default: '' },
@@ -48,12 +48,20 @@ export default {
     'update:emailAddressModelValue',
     'update:nextModelValue',
   ],
+  data() {
+    return {
+      nextChildModelValue: '',
+    };
+  },
   computed: {
     nextForm() {
-      return FormStages.Health;
+      return FormStages.General;
+    },
+  },
+  watch: {
+    nextChildModelValue(val) {
+      this.$emit('update:nextModelValue', val);
     },
   },
 };
 </script>
-
-<style scoped></style>

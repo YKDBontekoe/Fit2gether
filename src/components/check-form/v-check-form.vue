@@ -9,6 +9,11 @@
         :last-name-model-value="formData.personal.lastName"
         :email-address-model-value="formData.personal.emailAddress"
       />
+      <VCheckGeneralInfo
+        v-if="isGeneralFormName"
+        v-model:next-model-value="nextModel"
+        v-model:previous-model-value="previousModel"
+      />
       <VCheckHealthForm
         v-if="isHealthFormName"
         v-model:next-model-value="nextModel"
@@ -25,10 +30,12 @@ import VCheckPersonalForm from '@/components/check-form/v-check-personal-form.vu
 import VCheckProgressBar from '@/components/check-form/v-check-progress-bar.vue';
 import VCheckResultForm from '@/components/check-form/v-check-result-form.vue';
 import { FormStages } from '@/types/enums/FormStages';
+import VCheckGeneralInfo from '@/components/check-form/v-check-general-info.vue';
 
 export default {
   name: 'VCheckForm',
   components: {
+    VCheckGeneralInfo,
     VCheckResultForm,
     VCheckProgressBar,
     VCheckHealthForm,
@@ -52,16 +59,26 @@ export default {
     isHealthFormName() {
       return FormStages.Health === this.currentForm;
     },
+    isGeneralFormName() {
+      return FormStages.General === this.currentForm;
+    },
     isResultFormName() {
       return FormStages.Result === this.currentForm;
     },
   },
-  watch: {
-    nextModel(val) {
-      this.currentForm = val;
+  mounted() {
+    this.$watch('nextModel', this.nextModelWatcher);
+    this.$watch('previousModel', this.previousModelWatcher);
+  },
+  methods: {
+    nextModelWatcher(newVal) {
+      if (FormStages.None !== newVal) {
+        this.currentForm = newVal;
+      }
     },
-    previousModel(val) {
-      this.currentForm = val;
+    previousModelWatcher(newVal) {
+      this.currentForm = newVal;
+      this.nextModel = FormStages.None;
     },
   },
 };

@@ -1,6 +1,7 @@
 <template>
   <ul id="progressbar">
     <li class="active">Personal Details</li>
+    <li :class="isGeneral">General Info</li>
     <li :class="isHealth">Health Details</li>
     <li :class="isResult">Result</li>
   </ul>
@@ -17,6 +18,13 @@ export default {
   computed: {
     isHealth() {
       return this.currentForm === FormStages.Health ||
+        this.currentForm === FormStages.Result
+        ? 'active'
+        : '';
+    },
+    isGeneral() {
+      return this.currentForm === FormStages.General ||
+        this.currentForm === FormStages.Health ||
         this.currentForm === FormStages.Result
         ? 'active'
         : '';
