@@ -5,20 +5,38 @@
     <input
       type="text"
       placeholder="First Name"
+      :value="formData.personalData.firstName"
       required
-      @input="$emit('update:firstNameModelValue', $event.target.value)"
+      @input="
+        $emit(
+          'update:formData',
+          updateProperty('firstName', $event.target.value)
+        )
+      "
     />
     <input
       type="text"
       placeholder="Last Name"
+      :value="formData.personalData.lastName"
       required
-      @input="$emit('update:lastNameModelValue', $event.target.value)"
+      @input="
+        $emit(
+          'update:formData',
+          updateProperty('lastName', $event.target.value)
+        )
+      "
     />
     <input
       type="email"
       placeholder="Email"
+      :value="formData.personalData.emailAddress"
       required
-      @input="$emit('update:emailAddressModelValue', $event.target.value)"
+      @input="
+        $emit(
+          'update:formData',
+          updateProperty('emailAddress', $event.target.value)
+        )
+      "
     />
 
     <VCheckStateHandler
@@ -30,26 +48,21 @@
 </template>
 
 <script lang="ts">
-import { FormStages } from '@/types/enums/FormStages';
+import { defineComponent } from 'vue';
+import { FormStages } from '@/types/check-form/enums/FormStages';
 import VCheckStateHandler from '@/components/check-form/shared/v-check-state-handler.vue';
 
-export default {
+export default defineComponent({
   name: 'VCheckPersonalForm',
   components: { VCheckStateHandler },
   props: {
-    firstNameModelValue: { type: String, default: '' },
-    lastNameModelValue: { type: String, default: '' },
-    emailAddressModelValue: { type: String, default: '' },
+    formData: { type: Object, required: true },
     nextModelValue: { type: String, default: '' },
   },
-  emits: [
-    'update:firstNameModelValue',
-    'update:lastNameModelValue',
-    'update:emailAddressModelValue',
-    'update:nextModelValue',
-  ],
+  emits: ['update:formData', 'update:nextModelValue'],
   data() {
     return {
+      i_formData: this.formData,
       nextChildModelValue: '',
     };
   },
@@ -63,5 +76,11 @@ export default {
       this.$emit('update:nextModelValue', val);
     },
   },
-};
+  methods: {
+    updateProperty(propName, propVal) {
+      this.i_formData.personalData[propName] = propVal;
+      return this.formData;
+    },
+  },
+});
 </script>

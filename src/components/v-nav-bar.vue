@@ -37,4 +37,8 @@
   </nav>
 </template>
 
-<script></script>
+<script>
+import { defineComponent } from 'vue';
+
+defineComponent({});
+</script>

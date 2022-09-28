@@ -1,10 +1,32 @@
 <template>
   <fieldset>
+    <h2 class="fs-title">General Data</h2>
+    <h3 class="fs-subtitle">Basic data about your</h3>
+
     <label for="Age">Age</label>
-    <input id="Age" type="number" name="Age" required />
+    <input
+      id="Age"
+      type="number"
+      name="Age"
+      :value="formData.generalData.age"
+      required
+      @input="
+        $emit('update:formData', updateProperty('age', $event.target.value))
+      "
+    />
 
     <label for="BMI">Body Mass Index (BMI)</label>
-    <input id="BMI" type="number" name="BMI (Body Mass Index)" required />
+    <input
+      id="BMI"
+      type="number"
+      name="BMI (Body Mass Index)"
+      :value="formData.generalData.bmi"
+      required
+      @input="
+        $emit('update:formData', updateProperty('bmi', $event.target.value))
+      "
+    />
+
     <VCheckStateHandler
       v-model:next-model-value="nextChildModelValue"
       v-model:previous-model-value="previousChildModelValue"
@@ -15,22 +37,28 @@
 </template>
 
 <script>
-import { FormStages } from '@/types/enums/FormStages';
+import { defineComponent } from 'vue';
+import { FormStages } from '@/types/check-form/enums/FormStages';
 import VCheckStateHandler from '@/components/check-form/shared/v-check-state-handler';
-
-export default {
+export default defineComponent({
   name: 'VCheckGeneralInfo',
   components: { VCheckStateHandler },
   props: {
+    formData: { type: Object, required: true },
     nextModelValue: { type: String, default: '' },
     previousModelValue: {
       type: String,
       default: '',
     },
   },
-  emits: ['update:nextModelValue', 'update:previousModelValue'],
+  emits: [
+    'update:nextModelValue',
+    'update:previousModelValue',
+    'update:formData',
+  ],
   data() {
     return {
+      i_formData: this.formData,
       nextChildModelValue: '',
       previousChildModelValue: '',
     };
@@ -51,7 +79,11 @@ export default {
       this.$emit('update:previousModelValue', val);
     },
   },
-};
+  methods: {
+    updateProperty(propName, propVal) {
+      this.i_formData.generalData[propName] = propVal;
+      return this.formData;
+    },
+  },
+});
 </script>
-
-<style scoped></style>

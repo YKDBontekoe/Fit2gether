@@ -17,7 +17,9 @@
 </template>
 
 <script>
-export default {
+import { defineComponent } from 'vue';
+
+export default defineComponent({
   name: 'VCheckStateHandler',
   props: {
     nextForm: { type: String, default: '' },
@@ -30,7 +32,7 @@ export default {
     },
   },
   emits: ['update:nextModelValue', 'update:previousModelValue'],
-};
+});
 </script>
 
 <style scoped></style>

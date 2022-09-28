@@ -8,9 +8,10 @@
 </template>
 
 <script>
-import { FormStages } from '@/types/enums/FormStages';
+import { defineComponent } from 'vue';
+import { FormStages } from '@/types/check-form/enums/FormStages';
 
-export default {
+export default defineComponent({
   name: 'VCheckProgressBar',
   props: {
     currentForm: { type: String, default: '' },
@@ -33,7 +34,7 @@ export default {
       return this.currentForm === FormStages.Result ? 'active' : '';
     },
   },
-};
+});
 </script>
 
 <style scoped></style>
