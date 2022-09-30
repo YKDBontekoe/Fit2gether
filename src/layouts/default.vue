@@ -6,8 +6,11 @@
 </template>
 <script lang="ts" setup></script>
 <script>
-import VNavBar from '../components/v-nav-bar'
-export default {
+import { defineComponent } from 'vue';
+import VNavBar from '../components/v-nav-bar';
+
+export default defineComponent({
+  name: 'DefaultLayout',
   components: { VNavBar },
-}
+});
 </script>

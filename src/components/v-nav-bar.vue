@@ -2,8 +2,8 @@
   <nav class="navbar navbar-dark bg-primary bg-opacity-60 navbar-expand-lg">
     <div class="container container-fluid">
       <NuxtLink class="navbar-brand" to="/">
-        Fit <span class="mdi mdi-heart" /> Together</NuxtLink
-      >
+        Fit <span class="mdi mdi-heart" /> Together
+      </NuxtLink>
       <button
         class="navbar-toggler"
         type="button"
@@ -22,8 +22,8 @@
           </li>
           <li class="nav-item">
             <NuxtLink class="nav-link active" to="/explain"
-              >How does it work?</NuxtLink
-            >
+              >How does it work?
+            </NuxtLink>
           </li>
           <li class="nav-item">
             <NuxtLink class="nav-link active" to="/about">About</NuxtLink>

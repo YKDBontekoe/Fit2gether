@@ -188,6 +188,10 @@
 }
 
 @keyframes progress-bar-anim {
-  from { background: #d3d3d3}
-  to { background: #F47174 }
+  from {
+    background: #d3d3d3
+  }
+  to {
+    background: #F47174
+  }
 }

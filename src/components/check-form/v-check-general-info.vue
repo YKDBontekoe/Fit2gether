@@ -40,6 +40,7 @@
 import { defineComponent } from 'vue';
 import { FormStages } from '@/types/check-form/enums/FormStages';
 import VCheckStateHandler from '@/components/check-form/shared/v-check-state-handler';
+
 export default defineComponent({
   name: 'VCheckGeneralInfo',
   components: { VCheckStateHandler },

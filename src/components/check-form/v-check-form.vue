@@ -1,30 +1,30 @@
 <template>
   <div>
-    <form id="msform">
-      <VCheckProgressBar v-model:current-form="currentForm" />
+    <form id='msform'>
+      <VCheckProgressBar v-model:current-form='currentForm' />
       <VCheckPersonalForm
-        v-if="isPersonalFormName"
-        v-model:next-model-value="nextModel"
-        v-model:form-data="formData"
+        v-if='isPersonalFormName'
+        v-model:next-model-value='nextModel'
+        v-model:form-data='formData'
       />
       <VCheckGeneralInfo
-        v-if="isGeneralFormName"
+        v-if='isGeneralFormName'
         v-model:form-data='formData'
-        v-model:next-model-value="nextModel"
-        v-model:previous-model-value="previousModel"
+        v-model:next-model-value='nextModel'
+        v-model:previous-model-value='previousModel'
       />
       <VCheckHealthForm
-        v-if="isHealthFormName"
+        v-if='isHealthFormName'
         :form-data='formData'
-        v-model:next-model-value="nextModel"
-        v-model:previous-model-value="previousModel"
+        v-model:next-model-value='nextModel'
+        v-model:previous-model-value='previousModel'
       />
-      <VCheckResultForm v-if="isResultFormName" :form-data='formData' />
+      <VCheckResultForm v-if='isResultFormName' :form-data='formData' />
     </form>
   </div>
 </template>
 
-<script lang="ts">
+<script lang='ts'>
 import VCheckHealthForm from '@/components/check-form/v-check-health-form.vue';
 import VCheckPersonalForm from '@/components/check-form/v-check-personal-form.vue';
 import VCheckProgressBar from '@/components/check-form/v-check-progress-bar.vue';
@@ -41,14 +41,14 @@ export default defineComponent({
     VCheckResultForm,
     VCheckProgressBar,
     VCheckHealthForm,
-    VCheckPersonalForm,
+    VCheckPersonalForm
   },
   data() {
     return {
-      formData: {personalData: {}, healthData: {}, generalData: {}} as FormCheckType,
+      formData: { personalData: {}, healthData: {}, generalData: {} } as FormCheckType,
       currentForm: FormStages.Personal,
       nextModel: '',
-      previousModel: '',
+      previousModel: ''
     };
   },
   computed: {
@@ -63,7 +63,7 @@ export default defineComponent({
     },
     isResultFormName() {
       return FormStages.Result === this.currentForm;
-    },
+    }
   },
   mounted() {
     this.$watch('nextModel', this.nextModelWatcher);
@@ -78,7 +78,7 @@ export default defineComponent({
     previousModelWatcher(newVal) {
       this.currentForm = newVal;
       this.nextModel = FormStages.None;
-    },
-  },
+    }
+  }
 });
 </script>
