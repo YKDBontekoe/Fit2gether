@@ -41,6 +41,7 @@
         "@mdi/font": "^7.0.96",
         "@nuxtjs/eslint-config": "^10.0.0",
         "@popperjs/core": "^2.11.6",
+        "@tensorflow/tfjs": "^3.20.0",
         "bootstrap": "^5.2.1",
         "firebase": "^9.8.4",
         "sass": "^1.55.0",
