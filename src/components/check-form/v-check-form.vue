@@ -68,8 +68,37 @@ export default defineComponent({
   mounted() {
     this.$watch('nextModel', this.nextModelWatcher);
     this.$watch('previousModel', this.previousModelWatcher);
+    this.initForm();
   },
   methods: {
+    initForm() {
+      this.formData = {
+        personalData: {
+          emailAddress: '',
+          firstName: '',
+          lastName: ''
+        },
+        healthData: {
+          diabetes: false,
+          diffWalk: false,
+          fruits: false,
+          genHlth: 0,
+          highBP: false,
+          highChol: false,
+          mentHlth: 0,
+          sex: false,
+          physActivity: false,
+          physHlth: 0,
+          smoker: false,
+          stroke: false,
+          veggies: false,
+        },
+        generalData: {
+          age: 0,
+          bmi: 0,
+        }
+      };
+    },
     nextModelWatcher(newVal) {
       if (FormStages.None !== newVal) {
         this.currentForm = newVal;

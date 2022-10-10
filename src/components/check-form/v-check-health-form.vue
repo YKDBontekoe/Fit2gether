@@ -260,7 +260,7 @@
           id="MentHlth"
           type="number"
           name="Mental Health"
-          :value="formData.healthData.menHlth"
+          :value="formData.healthData.mentHlth"
           required
           @input="
             $emit(
