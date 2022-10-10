@@ -23,7 +23,7 @@ export default defineComponent({
   },
   async mounted() {
     const model = await tf.loadLayersModel(
-      'https://public.db.files.1drv.com/y4mil8bWzHkAWRhowk_VmA_cLRPT_i5v2fJbV4qG4yNRRlr1RDcMFVLR5vibBaPmLDMBirKniujFripzTZBFpS7bJIiVnRs1PnCjkmSlAxu8jdMXa_nKf9neGQIWKSeq1znlNBYHrRYlpYgE2TDx_vnwFTKdtvqAl76Vm54WLJ57QsUSgINirFwvSMZ8wSv3g72SSieIU97uz7QqYQrciEzd9dLlAW4V-98iJCzXlMAubM'
+      'https://fit2getherapi.azurewebsites.net/model'
     );
 
     const pred = model.predict(tf.tensor(this.flattenObj(), [15]));

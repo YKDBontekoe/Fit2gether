@@ -1,5 +1,10 @@
 <template>
   <div class="container">
+    <img
+      class="img-fluid"
+      src="@/assets/images/check-page-background.jpg"
+      style="display: block; margin-left: auto; margin-right: auto; width: 20%"
+    />
     <VCheckForm />
   </div>
 </template>
@@ -12,5 +17,3 @@ export default {
   components: { VCheckForm },
 };
 </script>
-
-<style scoped></style>
