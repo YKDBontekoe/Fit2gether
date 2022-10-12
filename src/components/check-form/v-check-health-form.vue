@@ -46,7 +46,7 @@
         >
         <VRadioGroup
           id="Smoker"
-          :v-model="formData.healthData.highChol"
+          :v-model="formData.healthData.smoker"
           :options="decisionsValues"
           :options-alias="decisionsAliases"
           radio-group-name="Smoker"
@@ -71,23 +71,6 @@
             $emit(
               'update:formData',
               updateProperty('stroke', $event.target.value)
-            )
-          "
-        />
-
-        <label class="form-check-label" for="Diabetes"
-          >Do you have diabetes?</label
-        >
-        <VRadioGroup
-          id="Diabetes"
-          :v-model="formData.healthData.diabetes"
-          :options="decisionsValues"
-          :options-alias="decisionsAliases"
-          radio-group-name="Diabetes"
-          @change="
-            $emit(
-              'update:formData',
-              updateProperty('diabetes', $event.target.value)
             )
           "
         />
@@ -154,6 +137,12 @@
             :options="decisionsValues"
             :options-alias="decisionsAliases"
             radio-group-name="DiffWalk"
+            @change="
+              $emit(
+                'update:formData',
+                updateProperty('diffWalk', $event.target.value)
+              )
+            "
           />
           <label class="form-check-label" for="Sex"
             >Indicate sex of respondent</label
@@ -190,10 +179,13 @@
           depression, and problems with emotions, for how many days during the
           past 30 days was your mental health not good?"
             :v-model="formData.healthData.mentHlth"
+            bad-min-value-name="Not Good"
+            good-max-value-name="Very Good"
+            :step-value="0.5"
             @change="
               $emit(
                 'update:formData',
-                updateProperty('menHlth', $event.target.value)
+                updateProperty('mentHlth', $event.target.value)
               )
             "
           /><br />
@@ -204,6 +196,9 @@
           illness and injury, for how many days during the past 30 days was your
           physical health not good?"
             :v-model="formData.healthData.physHlth"
+            bad-min-value-name="Not Good"
+            good-max-value-name="Very Good"
+            :step-value="0.5"
             @change="
               $emit(
                 'update:formData',

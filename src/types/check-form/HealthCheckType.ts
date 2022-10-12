@@ -3,7 +3,6 @@ export type HealthCheckType = {
   highChol: number;
   smoker: number;
   stroke: number;
-  diabetes: number;
   physActivity: number;
   fruits: number;
   veggies: number;

@@ -79,7 +79,6 @@ export default defineComponent({
           lastName: ''
         },
         healthData: {
-          diabetes: 0.0,
           diffWalk: 0.0,
           fruits: 0.0,
           genHlth: 0.0,
