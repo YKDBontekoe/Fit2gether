@@ -1,9 +1,10 @@
 <template>
-  <div class="input-group">
+  <div class="d-flex">
     <VRadio
-      v-for="option in options"
-      :key="option"
+      v-for="(index, option) in options"
+      :key="index"
       :option="option"
+      :option-alias="optionsAlias[index]"
       :radio-group-name="radioGroupName"
     />
   </div>
@@ -27,12 +28,17 @@ export default {
       required: true,
       type: String,
     },
+    isRequired: {
+      required: false,
+      type: Boolean,
+      default: false,
+    },
   },
 };
 </script>
 
 <style scoped>
-.input-group {
+.d-flex {
   width: 50%;
   margin: 20px auto;
   padding: 15px 20px;

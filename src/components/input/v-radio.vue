@@ -1,16 +1,17 @@
 <template>
-  <div class="form-check">
-    <label class="form-check-label" :for="option">
-      <input
-        :id="option"
-        class="form-check-input"
-        type="radio"
-        :name="radioGroupName"
-        :value="option"
-        @change="$parent.$emit('input', option)"
-      />
+  <div class="form-check form-check-inline">
+    <label class="form-check-label" :for="GetId">
       {{ optionAlias }}
     </label>
+    <input
+      :id="getId"
+      class="form-check-input"
+      type="radio"
+      :name="radioGroupName"
+      :value="option"
+      :required="getIsRequired"
+      @change="$parent.$emit('input', option)"
+    />
   </div>
 </template>
 
@@ -20,7 +21,7 @@ export default {
   props: {
     option: {
       required: true,
-      type: String,
+      type: Number,
     },
     optionAlias: {
       required: true,
@@ -29,6 +30,19 @@ export default {
     radioGroupName: {
       required: true,
       type: String,
+    },
+    isRequired: {
+      required: false,
+      type: Boolean,
+      default: false,
+    },
+  },
+  computed: {
+    getId() {
+      return 'id_' + this.radioGroupName + '_' + this.option;
+    },
+    getIsRequired() {
+      return this.isRequired ? 'required' : '';
     },
   },
 };

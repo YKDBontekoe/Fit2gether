@@ -8,6 +8,7 @@
       :min="minValue"
       :max="maxValue"
       :step="stepValue"
+      :required="getIsRequired"
       @change="onChange"
     />
     <div class="row">
@@ -61,11 +62,21 @@ export default {
       type: String,
       default: 'Bad',
     },
+    isRequired: {
+      required: false,
+      type: Boolean,
+      default: false,
+    },
   },
   data() {
     return {
       s_value: 0,
     };
+  },
+  computed: {
+    getIsRequired() {
+      return this.isRequired ? 'required' : '';
+    },
   },
   methods: {
     onChange(event) {

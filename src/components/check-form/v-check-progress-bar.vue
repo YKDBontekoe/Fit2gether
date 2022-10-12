@@ -1,5 +1,5 @@
 <template>
-  <ul id="progressbar">
+  <ul v-if="!isResult" id="progressbar">
     <li class="active">Personal Details</li>
     <li :class="isGeneral">General Info</li>
     <li :class="isHealth">Health Details</li>

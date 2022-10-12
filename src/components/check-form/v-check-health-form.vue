@@ -13,6 +13,7 @@
           :v-model="formData.healthData.highBP"
           :options="decisionsValues"
           :options-alias="decisionsAliases"
+          :is-required="true"
           radio-group-name="HighBP"
           @change="
             $emit(
@@ -31,6 +32,7 @@
           :v-model="formData.healthData.highChol"
           :options="decisionsValues"
           :options-alias="decisionsAliases"
+          :is-required="true"
           radio-group-name="HighChol"
           @change="
             $emit(
@@ -49,6 +51,7 @@
           :v-model="formData.healthData.smoker"
           :options="decisionsValues"
           :options-alias="decisionsAliases"
+          :is-required="true"
           radio-group-name="Smoker"
           @change="
             $emit(
@@ -66,6 +69,7 @@
           :v-model="formData.healthData.stroke"
           :options="decisionsValues"
           :options-alias="decisionsAliases"
+          :is-required="true"
           radio-group-name="Stroke"
           @change="
             $emit(
@@ -84,6 +88,7 @@
           :v-model="formData.healthData.physActivity"
           :options="decisionsValues"
           :options-alias="decisionsAliases"
+          :is-required="true"
           radio-group-name="PhysActivity"
           @change="
             $emit(
@@ -101,6 +106,7 @@
           :v-model="formData.healthData.fruits"
           :options="decisionsValues"
           :options-alias="decisionsAliases"
+          :is-required="true"
           radio-group-name="Fruits"
           @change="
             $emit(
@@ -119,6 +125,7 @@
             :v-model="formData.healthData.veggies"
             :options="decisionsValues"
             :options-alias="decisionsAliases"
+            :is-required="true"
             radio-group-name="Veggies"
             @change="
               $emit(
@@ -136,6 +143,7 @@
             :v-model="formData.healthData.diffWalk"
             :options="decisionsValues"
             :options-alias="decisionsAliases"
+            :is-required="true"
             radio-group-name="DiffWalk"
             @change="
               $emit(
@@ -152,6 +160,7 @@
             :v-model="formData.healthData.sex"
             :options="decisionsValues"
             :options-alias="['Male', 'Female']"
+            :is-required="true"
             radio-group-name="Sex"
             @change="
               $emit(
@@ -165,6 +174,10 @@
             id="GenHlth"
             slider-text="Would you say that in general your health is?"
             :v-model="formData.healthData.genHlth"
+            bad-min-value-name="Not Good"
+            good-max-value-name="Very Good"
+            :is-required="true"
+            :step-value="0.5"
             @change="
               $emit(
                 'update:formData',
@@ -181,6 +194,7 @@
             :v-model="formData.healthData.mentHlth"
             bad-min-value-name="Not Good"
             good-max-value-name="Very Good"
+            :is-required="true"
             :step-value="0.5"
             @change="
               $emit(
@@ -198,6 +212,7 @@
             :v-model="formData.healthData.physHlth"
             bad-min-value-name="Not Good"
             good-max-value-name="Very Good"
+            :is-required="true"
             :step-value="0.5"
             @change="
               $emit(

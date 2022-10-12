@@ -7,7 +7,7 @@
       placeholder="First Name"
       :value="formData.personalData.firstName"
       required
-      @input="
+      @change="
         $emit(
           'update:formData',
           updateProperty('firstName', $event.target.value)
@@ -19,7 +19,7 @@
       placeholder="Last Name"
       :value="formData.personalData.lastName"
       required
-      @input="
+      @change="
         $emit(
           'update:formData',
           updateProperty('lastName', $event.target.value)
@@ -31,7 +31,7 @@
       placeholder="Email"
       :value="formData.personalData.emailAddress"
       required
-      @input="
+      @change="
         $emit(
           'update:formData',
           updateProperty('emailAddress', $event.target.value)
