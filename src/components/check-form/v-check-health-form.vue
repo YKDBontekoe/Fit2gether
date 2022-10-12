@@ -126,88 +126,92 @@
             )
           "
         />
-      </div>
-      <div class="col order-1">
-        <label class="form-check-label" for="Veggies"
-          >Consume Vegetables 1 or more times per day</label
-        >
-        <VRadioGroup
-          id="Veggies"
-          :v-model="formData.healthData.veggies"
-          :options="decisionsValues"
-          :options-alias="decisionsAliases"
-          radio-group-name="Veggies"
-          @change="
-            $emit(
-              'update:formData',
-              updateProperty('veggies', $event.target.value)
-            )
-          "
-        />
 
-        <label for="DiffWalk"
-          >Do you have serious difficulty walking or climbing stairs?</label
-        >
-        <VRadioGroup
-          id="DiffWalk"
-          :v-model="formData.healthData.diffWalk"
-          :options="decisionsValues"
-          :options-alias="decisionsAliases"
-          radio-group-name="DiffWalk"
-        />
-        <label class="form-check-label" for="Sex"
-          >Indicate sex of respondent</label
-        >
-        <VRadioGroup
-          id="Sex"
-          :v-model="formData.healthData.sex"
-          :options="decisionsValues"
-          :options-alias="decisionsAliases"
-          radio-group-name="Sex"
-          @change="
-            $emit('update:formData', updateProperty('sex', $event.target.value))
-          "
-        />
+        <div class="col order-1">
+          <label class="form-check-label" for="Veggies"
+            >Consume Vegetables 1 or more times per day</label
+          >
+          <VRadioGroup
+            id="Veggies"
+            :v-model="formData.healthData.veggies"
+            :options="decisionsValues"
+            :options-alias="decisionsAliases"
+            radio-group-name="Veggies"
+            @change="
+              $emit(
+                'update:formData',
+                updateProperty('veggies', $event.target.value)
+              )
+            "
+          />
 
-        <VSlider
-          id="GenHlth"
-          slider-text="Would you say that in general your health is?"
-          :v-model="formData.healthData.genHlth"
-          @change="
-            $emit(
-              'update:formData',
-              updateProperty('genHlth', $event.target.value)
-            )
-          "
-        /><br />
+          <label for="DiffWalk"
+            >Do you have serious difficulty walking or climbing stairs?</label
+          >
+          <VRadioGroup
+            id="DiffWalk"
+            :v-model="formData.healthData.diffWalk"
+            :options="decisionsValues"
+            :options-alias="decisionsAliases"
+            radio-group-name="DiffWalk"
+          />
+          <label class="form-check-label" for="Sex"
+            >Indicate sex of respondent</label
+          >
+          <VRadioGroup
+            id="Sex"
+            :v-model="formData.healthData.sex"
+            :options="decisionsValues"
+            :options-alias="['Male', 'Female']"
+            radio-group-name="Sex"
+            @change="
+              $emit(
+                'update:formData',
+                updateProperty('sex', $event.target.value)
+              )
+            "
+          />
 
-        <VSlider
-          id="MentHlth"
-          slider-text="Now thinking about your mental health, which includes stress,
+          <VSlider
+            id="GenHlth"
+            slider-text="Would you say that in general your health is?"
+            :v-model="formData.healthData.genHlth"
+            @change="
+              $emit(
+                'update:formData',
+                updateProperty('genHlth', $event.target.value)
+              )
+            "
+          /><br />
+
+          <VSlider
+            id="MentHlth"
+            slider-text="Now thinking about your mental health, which includes stress,
           depression, and problems with emotions, for how many days during the
           past 30 days was your mental health not good?"
-          :v-model="formData.healthData.mentHlth"
-          @change="
-            $emit(
-              'update:formData',
-              updateProperty('menHlth', $event.target.value)
-            )
-          "
-        /><br />
+            :v-model="formData.healthData.mentHlth"
+            @change="
+              $emit(
+                'update:formData',
+                updateProperty('menHlth', $event.target.value)
+              )
+            "
+          /><br />
 
-        <VSlider
-          id="PhysHlth"
-          slider-text="Now thinking about your physical health, which includes physical
+          <VSlider
+            id="PhysHlth"
+            slider-text="Now thinking about your physical health, which includes physical
           illness and injury, for how many days during the past 30 days was your
           physical health not good?"
-          :v-model="formData.healthData.physHlth"
-          @change="
-            $emit(
-              'update:formData',
-              updateProperty('physHlth', $event.target.value)
-            )
-          "
-        />
+            :v-model="formData.healthData.physHlth"
+            @change="
+              $emit(
+                'update:formData',
+                updateProperty('physHlth', $event.target.value)
+              )
+            "
+          />
+        </div>
       </div>
     </div>
     <VCheckStateHandler
