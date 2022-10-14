@@ -53,6 +53,7 @@ export default defineComponent({
       'https://fit2getherapi.azurewebsites.net/model'
     );
 
+    this.prepareData();
     const pred = model.predict(tf.tensor2d(this.processData(), [1, 14]));
     this.prediction = await pred.dataSync();
   },
@@ -66,14 +67,22 @@ export default defineComponent({
     },
     processData() {
       this.prepareData();
-      const mergedData = {
-        ...this.i_formData.healthData,
-        ...this.i_formData.generalData,
-      };
-
-      return Object.keys(mergedData).map(function (key) {
-        return parseInt(mergedData[key]);
-      });
+      return [
+        this.i_formData.healthData.highBP,
+        this.i_formData.healthData.highChol,
+        this.i_formData.generalData.bmi,
+        this.i_formData.healthData.smoker,
+        this.i_formData.healthData.stroke,
+        this.i_formData.healthData.physActivity,
+        this.i_formData.healthData.fruits,
+        this.i_formData.healthData.veggies,
+        this.i_formData.healthData.genHlth,
+        this.i_formData.healthData.mentHlth,
+        this.i_formData.healthData.physHlth,
+        this.i_formData.healthData.diffWalk,
+        this.i_formData.healthData.sex,
+        this.i_formData.generalData.age,
+      ].map(Number);
     },
     parseFloat(str, val) {
       str = str.toString();

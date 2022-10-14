@@ -40,7 +40,6 @@
         </div>
       </div>
     </div>
-    <div class="bg-primary" style="width: 100%; min-height: 150px"></div>
   </div>
 </template>
 
