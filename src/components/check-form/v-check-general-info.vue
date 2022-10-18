@@ -1,7 +1,7 @@
 <template>
   <fieldset>
     <h2 class="fs-title">General Data</h2>
-    <h3 class="fs-subtitle">Basic data about your</h3>
+    <h3 class="fs-subtitle">Basic data about you</h3>
 
     <label for="Age">Age</label>
     <input
@@ -16,16 +16,24 @@
     />
 
     <label for="BMI">Body Mass Index (BMI)</label>
-    <input
-      id="BMI"
-      type="number"
-      name="BMI (Body Mass Index)"
-      :value="formData.generalData.bmi"
-      required
-      @input="
-        $emit('update:formData', updateProperty('bmi', $event.target.value))
-      "
-    />
+    <div class="input-group mb-3">
+      <input
+        id="BMI"
+        type="number"
+        name="BMI (Body Mass Index)"
+        :value="formData.generalData.bmi"
+        required
+        @input="
+          $emit('update:formData', updateProperty('bmi', $event.target.value))
+        "
+      />
+      <small class="w-100 text-muted"
+        >If you don't know your BMI click
+        <a href="https://www.calculator.net/bmi-calculator.html" target="_blank"
+          >here</a
+        >
+      </small>
+    </div>
 
     <VCheckStateHandler
       v-model:next-model-value="nextChildModelValue"
