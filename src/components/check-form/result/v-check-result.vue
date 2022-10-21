@@ -1,29 +1,50 @@
 <template>
-  <div>
+  <fieldset>
     <h1 class="fs-title">Results</h1>
     <p>
-      Hallo <strong>{{ formData.personalData.firstName }} </strong>,<br />
-      ik heb goed nieuws u gaat
-      <strong>{{ predictedValue > 50 ? 'dood' : 'blijven leven' }} </strong> met
-      <strong>{{ predictedValue }}%</strong> kans
+      Hello <strong>{{ formData.personalData.firstName }} </strong>,
     </p>
-
-    <table class="justify-content-center">
-      <tr v-for="item in flattenedObject" :key="item">
-        <td v-for="value in item" :key="value">
-          {{ value }}
-        </td>
-      </tr>
-    </table>
-  </div>
+    <p>
+      Your risk of having a heart attack in the next 10 years is
+      <strong>{{ predictedValue }}%</strong>.
+      <img
+        v-if="prediction >= 0.5"
+        class="img-fluid"
+        src="@/assets/images/sad-heart-result.png
+        "
+        style="
+          display: block;
+          margin-left: auto;
+          margin-right: auto;
+          width: 15%;
+        "
+      />
+      <img
+        v-if="prediction < 0.5"
+        class="img-fluid"
+        src="@/assets/images/happy-heart-result.png
+        "
+        style="
+          display: block;
+          margin-left: auto;
+          margin-right: auto;
+          width: 15%;
+        "
+      />
+    </p>
+    <h5>Tips</h5>
+    <v-result-tips :form-data="i_formData" />
+  </fieldset>
 </template>
 
 <script>
 import { defineComponent } from 'vue';
 import * as tf from '@tensorflow/tfjs';
+import VResultTips from '@/components/check-form/result/v-result-tips';
 
 export default defineComponent({
-  name: 'VCheckResultForm',
+  name: 'VCheckResult',
+  components: { VResultTips },
   props: {
     formData: { type: Object, required: true },
   },
@@ -36,16 +57,6 @@ export default defineComponent({
   computed: {
     predictedValue() {
       return this.parseFloat(this.prediction * 100, 2);
-    },
-    flattenedObject() {
-      return Object.entries({
-        ...this.formData.healthData,
-        ...this.formData.generalData,
-        ...this.formData.personalData,
-      }).map(([position, name]) => ({
-        position,
-        name,
-      }));
     },
   },
   mounted: async function () {

@@ -19,7 +19,7 @@
         v-model:next-model-value='nextModel'
         v-model:previous-model-value='previousModel'
       />
-      <VCheckResultForm v-if='isResultFormName' :form-data='formData' />
+      <VCheckResult v-if='isResultFormName' :form-data='formData' />
     </form>
   </div>
 </template>
@@ -28,7 +28,7 @@
 import VCheckHealthForm from '@/components/check-form/v-check-health-form.vue';
 import VCheckPersonalForm from '@/components/check-form/v-check-personal-form.vue';
 import VCheckProgressBar from '@/components/check-form/v-check-progress-bar.vue';
-import VCheckResultForm from '@/components/check-form/v-check-result-form.vue';
+import VCheckResult from '@/components/check-form/result/v-check-result.vue';
 import { FormStages } from '@/types/check-form/enums/FormStages';
 import VCheckGeneralInfo from '@/components/check-form/v-check-general-info.vue';
 import { defineComponent } from 'vue';
@@ -38,7 +38,7 @@ export default defineComponent({
   name: 'VCheckForm',
   components: {
     VCheckGeneralInfo,
-    VCheckResultForm,
+    VCheckResult,
     VCheckProgressBar,
     VCheckHealthForm,
     VCheckPersonalForm
