@@ -6,32 +6,15 @@
     </p>
     <p>
       Your risk of having a heart attack in the next 10 years is
-      <strong>{{ predictedValue }}%</strong>.
-      <img
-        v-if="prediction >= 0.5"
-        class="img-fluid"
-        src="@/assets/images/sad-heart-result.png
-        "
-        style="
-          display: block;
-          margin-left: auto;
-          margin-right: auto;
-          width: 15%;
-        "
-      />
-      <img
-        v-if="prediction < 0.5"
-        class="img-fluid"
-        src="@/assets/images/happy-heart-result.png
-        "
-        style="
-          display: block;
-          margin-left: auto;
-          margin-right: auto;
-          width: 15%;
-        "
-      />
+      <strong>{{ predictedValue }}</strong
+      >. This is based on your answers to the questions in the previous steps.
+      If you have any questions, please contact your doctor.
     </p>
+    <small class="text-muted"
+      >*Based on our calculations you have a {{ parsedPredictedValue }} chance
+      at getting cardio vascular disease.</small
+    >
+    <hr />
     <h5>Tips</h5>
     <v-result-tips :form-data="i_formData" />
   </fieldset>
@@ -56,7 +39,18 @@ export default defineComponent({
   },
   computed: {
     predictedValue() {
-      return this.parseFloat(this.prediction * 100, 2);
+      if (this.prediction < 0.15) {
+        return 'low';
+      }
+
+      if (this.prediction < 0.3) {
+        return 'medium';
+      }
+
+      return 'high';
+    },
+    parsedPredictedValue() {
+      return `${(this.prediction * 100).toFixed(2)}%`;
     },
   },
   mounted: async function () {

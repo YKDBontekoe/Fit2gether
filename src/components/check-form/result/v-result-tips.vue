@@ -8,7 +8,15 @@
             cancer and other cancers, heart disease, stroke, and chronic
             obstructive pulmonary disease (COPD). Smoking also increases the
             risk of developing other serious health problems, such as diabetes,
-            osteoporosis, and rheumatoid arthritis.
+            osteoporosis, and rheumatoid arthritis. Get help to quit smoking
+            <strong
+              ><a
+                href="https://www.cdc.gov/tobacco/campaign/tips/quit-smoking/index.html"
+                target="_blank"
+                style="text-decoration: none"
+                >here</a
+              ></strong
+            >.
           </p>
         </td>
       </tr>
