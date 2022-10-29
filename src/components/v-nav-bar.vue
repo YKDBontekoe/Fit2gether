@@ -1,11 +1,11 @@
 <template>
-  <nav class="navbar navbar-dark bg-primary bg-opacity-60 navbar-expand-lg">
+  <nav class="navbar navbar-expand-lg navbar-light bg-white">
     <div class="container container-fluid">
-      <NuxtLink class="navbar-brand" to="/">
+      <NuxtLink class="navbar-brand text-primary fw-bold start" to="/">
         Fit <span class="mdi mdi-heart" /> Together
       </NuxtLink>
       <button
-        class="navbar-toggler"
+        class="navbar-toggler border-0 bg-primary rounded-3"
         type="button"
         data-bs-toggle="collapse"
         data-bs-target="#navContent"
@@ -18,18 +18,24 @@
       <div id="navContent" class="collapse navbar-collapse">
         <ul class="navbar-nav mb-2 mb-lg-0">
           <li class="nav-item">
-            <NuxtLink class="nav-link active" to="/">Home</NuxtLink>
+            <NuxtLink class="nav-link text-primary fw-bold" to="/"
+              >Home</NuxtLink
+            >
           </li>
           <li class="nav-item">
-            <NuxtLink class="nav-link active" to="/explain"
+            <NuxtLink class="nav-link text-primary fw-bold" to="/explain"
               >How does it work?
             </NuxtLink>
           </li>
           <li class="nav-item">
-            <NuxtLink class="nav-link active" to="/about">About</NuxtLink>
+            <NuxtLink class="nav-link text-primary fw-bold" to="/about"
+              >About</NuxtLink
+            >
           </li>
           <li class="nav-item">
-            <NuxtLink class="nav-link active" to="/privacy">Privacy</NuxtLink>
+            <NuxtLink class="nav-link text-primary fw-bold" to="/privacy"
+              >Privacy</NuxtLink
+            >
           </li>
         </ul>
       </div>
@@ -42,3 +48,16 @@ import { defineComponent } from 'vue';
 
 defineComponent({});
 </script>
+
+<style scoped>
+.navbar-brand {
+  font-size: 1.5rem;
+}
+.nav-link {
+  font-size: 1.2rem;
+}
+
+.nav-item:hover {
+  color: #000000;
+}
+</style>
