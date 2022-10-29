@@ -57,7 +57,17 @@ defineComponent({});
   font-size: 1.2rem;
 }
 
-.nav-item:hover {
-  color: #000000;
+#navContent {
+  justify-content: flex-end;
+}
+a {
+  margin: 1rem;
+  padding: 10px;
+  text-decoration: none;
+  border-radius: 20px;
+}
+a:hover {
+  color: white !important;
+  background: #f47174 !important;
 }
 </style>

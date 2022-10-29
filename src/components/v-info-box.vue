@@ -1,12 +1,21 @@
 <template>
-  <div class="card border-0 text-white mb-3 rounded-5" style="max-width: 25rem; margin: 1rem">
-    <slot name="card-image"></slot>
+  <div
+    class="card border-0 text-white mb-3 rounded-5"
+    style="max-width: 25rem; margin: 1rem; padding: 1rem"
+  >
+    <div style="margin: 10px">
+      <slot />
+    </div>
     <div class="card-body text-center text-black">
       <h5 class="card-title text-primary fw-bold">{{ title }}</h5>
       <p class="card-text fst-italic">
-        <div v-html="limitedText" />
+        <span v-html="limitedText" />
       </p>
-      <button v-if='isTextLimited' class="btn btn-primary text-white" @click='expandText'>
+      <button
+        v-if="isTextLimited"
+        class="btn btn-primary text-white"
+        @click="expandText"
+      >
         Expand to read more
       </button>
     </div>
@@ -41,16 +50,18 @@ export default {
   },
   computed: {
     limitedText() {
-      return !this.isTextLimited ? this.text : this.text.substring(0, 150) + '...';
+      return !this.isTextLimited
+        ? this.text
+        : this.text.substring(0, 150) + '...';
     },
   },
   mounted() {
     this.isTextLimited = this.text.length > 150;
   },
-  methods:{
-    expandText(){
+  methods: {
+    expandText() {
       this.isTextLimited = false;
-    }
-  }
+    },
+  },
 };
 </script>

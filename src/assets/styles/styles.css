@@ -8,9 +8,17 @@
   height: auto;
 }
 
+.heart-move-to-middle{
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+}
+
 .move-to-middle {
   position: absolute;
-  top: 50%;
+  top: 125px;
   left: 50%;
   transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
@@ -39,7 +47,7 @@
 #msform fieldset {
   background: white;
   border: 0 none;
-  border-radius: 8px;
+  border-radius: 20px;
   box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
   padding: 20px 30px;
   box-sizing: border-box;

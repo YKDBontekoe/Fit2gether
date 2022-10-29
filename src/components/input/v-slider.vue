@@ -4,7 +4,7 @@
     <input
       :id="id"
       type="range"
-      class="form-range"
+      class="form-range border-0"
       :min="minValue"
       :max="maxValue"
       :step="stepValue"

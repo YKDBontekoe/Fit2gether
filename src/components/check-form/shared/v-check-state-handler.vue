@@ -1,12 +1,12 @@
 <template>
   <div>
-    <input
-      v-if="hasPrevious"
-      type="button"
-      value="Previous"
-      class="previous action-button-previous"
-      @click="$emit('update:previousModelValue', previousForm)"
-    />
+    <!--    <input-->
+    <!--      v-if="hasPrevious"-->
+    <!--      type="button"-->
+    <!--      value="Previous"-->
+    <!--      class="previous action-button-previous"-->
+    <!--      @click="$emit('update:previousModelValue', previousForm)"-->
+    <!--    />-->
     <input
       type="button"
       value="Next"
