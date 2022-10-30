@@ -8,7 +8,14 @@
       Your risk of having a heart attack in the next 10 years is
       <strong>{{ predictedValue }}</strong
       >. This is based on your answers to the questions in the previous steps.
-      If you have any questions, please contact your doctor.
+      If you have any questions, please contact your doctor. Read more about how
+      we calculate the risk
+      <NuxtLink class="text-decoration-none fw-bold" to="/explain"
+        >here</NuxtLink
+      >. And if you are interested in the privacy policy, you can read it
+      <NuxtLink class="text-decoration-none fw-bold" to="/privacy-policy"
+        >here</NuxtLink
+      >.
     </p>
     <small class="text-muted"
       >*Based on our calculations you have a {{ parsedPredictedValue }} chance
@@ -69,6 +76,8 @@ export default defineComponent({
         this.i_formData.healthData.physHlth * 3;
       this.i_formData.healthData.mentHlth =
         this.i_formData.healthData.mentHlth * 3;
+      this.i_formData.healthData.genHlth =
+        this.i_formData.healthData.genHlth / 2;
     },
     processData() {
       this.prepareData();

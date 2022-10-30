@@ -8,7 +8,7 @@
     <!--      @click="$emit('update:previousModelValue', previousForm)"-->
     <!--    />-->
     <input
-      type="button"
+      type="submit"
       value="Next"
       class="next action-button bg-primary"
       @click="$emit('update:nextModelValue', nextForm)"
