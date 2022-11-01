@@ -21,12 +21,13 @@
         >here</NuxtLink
       >.
     </p>
-
     <p>
       The form contains 15 questions and statements regarding your personal well
-      being. Please answer them as honestly as possible. The more accurate your
-      answers are, the more accurate the prediction will be. The survey takes
-      about 5 minutes. If you are ready to go, click the button below.
+      being and is split up in 4 sections: personal details, general
+      information, health and finally the result. Please answer them as honestly
+      as possible. The more accurate your answers are, the more accurate the
+      prediction will be. The survey takes about 5 minutes. If you are ready to
+      go, click the button below.
     </p>
     <VCheckStateHandler
       v-model:next-model-value="nextChildModelValue"
