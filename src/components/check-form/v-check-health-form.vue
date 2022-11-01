@@ -1,7 +1,7 @@
 <template>
   <fieldset>
     <h2 class="fs-title">Health Data</h2>
-    <h3 class="fs-subtitle">Your current health</h3>
+    <h3 class="fs-subtitle">How is your current health?</h3>
 
     <div class="row">
       <label class="form-check-label" for="HighBP"

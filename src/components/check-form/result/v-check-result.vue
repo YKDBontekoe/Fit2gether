@@ -1,6 +1,7 @@
 <template>
   <fieldset>
     <h1 class="fs-title">Results</h1>
+    <h2 class="fs-subtitle">Your results are in!</h2>
     <p>
       Hello <strong>{{ formData.personalData.firstName }} </strong>,
     </p>

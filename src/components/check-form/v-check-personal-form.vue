@@ -1,7 +1,7 @@
 <template>
   <fieldset>
     <h2 class="fs-title">Personal Details</h2>
-    <h3 class="fs-subtitle">Tell us something more about you</h3>
+    <h3 class="fs-subtitle">Who are you?</h3>
     <input
       type="text"
       placeholder="First Name"

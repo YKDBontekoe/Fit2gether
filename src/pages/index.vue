@@ -4,7 +4,7 @@
       <img src="@/assets/images/main-page-background.jpg" />
       <div class="move-to-middle" style="z-index: 1">
         <NuxtLink to="/check" class="btn bg-transparent">
-          <span class="h5 text-white">Check your heart</span>
+          <span class="h5 text-white">Check your heart here</span>
         </NuxtLink>
       </div>
       <div class="heart-move-to-middle">

@@ -71,5 +71,6 @@ export default defineComponent({
   width: 150px;
   height: 100%;
   object-fit: cover;
+  border-radius: 15px;
 }
 </style>

@@ -1,7 +1,7 @@
 <template>
   <fieldset>
     <h2 class="fs-title">General Data</h2>
-    <h3 class="fs-subtitle">Basic data about you</h3>
+    <h3 class="fs-subtitle">General data about you</h3>
 
     <label for="Age">Age</label>
     <input
