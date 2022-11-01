@@ -23,7 +23,9 @@
 </template>
 
 <script>
-export default {
+import { defineComponent } from 'vue';
+
+export default defineComponent({
   name: 'VInfoBox',
   props: {
     title: {
@@ -63,5 +65,5 @@ export default {
       this.isTextLimited = false;
     },
   },
-};
+});
 </script>

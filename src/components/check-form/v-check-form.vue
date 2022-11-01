@@ -1,10 +1,11 @@
 <template>
-  <div>
     <form id='msform'>
       <VCheckProgressBar v-model:current-form='currentForm' />
+      <VCheckExplanation v-if='isExplanationFormName' v-model:next-model-value='nextModel'  />
       <VCheckPersonalForm
         v-if='isPersonalFormName'
         v-model:next-model-value='nextModel'
+        v-model:previous-model-value='previousModel'
         v-model:form-data='formData'
       />
       <VCheckGeneralInfo
@@ -21,7 +22,6 @@
       />
       <VCheckResult v-if='isResultFormName' :form-data='formData' />
     </form>
-  </div>
 </template>
 
 <script lang='ts'>
@@ -33,10 +33,12 @@ import { FormStages } from '@/types/check-form/enums/FormStages';
 import VCheckGeneralInfo from '@/components/check-form/v-check-general-info.vue';
 import { defineComponent } from 'vue';
 import { FormCheckType } from '@/types/check-form/FormCheckType';
+import VCheckExplanation from '@/components/check-form/v-check-explanation.vue';
 
 export default defineComponent({
   name: 'VCheckForm',
   components: {
+    VCheckExplanation,
     VCheckGeneralInfo,
     VCheckResult,
     VCheckProgressBar,
@@ -46,12 +48,15 @@ export default defineComponent({
   data() {
     return {
       formData: { personalData: {}, healthData: {}, generalData: {} } as FormCheckType,
-      currentForm: FormStages.Personal,
+      currentForm: FormStages.Explanation,
       nextModel: '',
       previousModel: ''
     };
   },
   computed: {
+    isExplanationFormName() {
+      return this.currentForm === FormStages.Explanation;
+    },
     isPersonalFormName() {
       return FormStages.Personal === this.currentForm;
     },

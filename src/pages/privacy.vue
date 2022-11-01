@@ -10,6 +10,14 @@
     data is not used for any other purpose. The data is not shared with any
     third party."
     />
+    <VAccordion
+      title="How do we use your data?"
+      content="The data is used to calculate your risk of having a heart attack in the next 10 years. The data is also used to give you tips on how to improve your health. The data is not used for any other purpose. The data is not shared with any third party."
+    />
+    <VAccordion
+      title="How do we protect your data?"
+      content="The data is stored on your device and is not sent to any server. The data is not shared with any third party. The data is not used for any other purpose."
+    />
     <div class="text-center">
       <img
         src="@/assets/images/privacy-image.jpg"

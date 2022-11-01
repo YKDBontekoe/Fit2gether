@@ -20,7 +20,7 @@
         data-bs-parent="#accordion"
       >
         <div class="accordion-body">
-          <p>{{ content }}</p>
+          <p v-html="content"></p>
         </div>
       </div>
     </div>
@@ -28,7 +28,9 @@
 </template>
 
 <script>
-export default {
+import { defineComponent } from 'vue';
+
+export default defineComponent({
   name: 'VAccordion',
   props: {
     title: {
@@ -47,5 +49,5 @@ export default {
         'accordion-heading-' + Math.random().toString(36).substr(2, 9),
     };
   },
-};
+});
 </script>

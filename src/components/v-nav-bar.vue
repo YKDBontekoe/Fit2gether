@@ -28,13 +28,13 @@
             </NuxtLink>
           </li>
           <li class="nav-item">
-            <NuxtLink class="nav-link text-primary fw-bold" to="/about"
-              >About</NuxtLink
+            <NuxtLink class="nav-link text-primary fw-bold" to="/privacy"
+              >Privacy</NuxtLink
             >
           </li>
           <li class="nav-item">
-            <NuxtLink class="nav-link text-primary fw-bold" to="/privacy"
-              >Privacy</NuxtLink
+            <NuxtLink class="nav-link text-primary fw-bold" to="/about"
+              >About</NuxtLink
             >
           </li>
         </ul>

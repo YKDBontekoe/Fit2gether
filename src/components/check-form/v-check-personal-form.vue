@@ -41,8 +41,9 @@
 
     <VCheckStateHandler
       v-model:next-model-value="nextChildModelValue"
-      :has-previous="false"
+      :has-previous="true"
       :next-form="nextForm"
+      :previous-form="previousForm"
     />
   </fieldset>
 </template>
@@ -69,6 +70,9 @@ export default defineComponent({
   computed: {
     nextForm() {
       return FormStages.General;
+    },
+    previousForm() {
+      return FormStages.Explanation;
     },
   },
   watch: {

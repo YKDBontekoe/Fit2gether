@@ -1,6 +1,7 @@
 <template>
   <ul v-if="!isResult" id="progressbar">
-    <li class="active">Personal Details</li>
+    <li class="active">Information</li>
+    <li :class="isPersonal">Personal Details</li>
     <li :class="isGeneral">General Info</li>
     <li :class="isHealth">Health Details</li>
     <li :class="isResult">Result</li>
@@ -27,6 +28,14 @@ export default defineComponent({
       return this.currentForm === FormStages.General ||
         this.currentForm === FormStages.Health ||
         this.currentForm === FormStages.Result
+        ? 'active'
+        : '';
+    },
+    isPersonal() {
+      return this.currentForm === FormStages.General ||
+        this.currentForm === FormStages.Health ||
+        this.currentForm === FormStages.Result ||
+        this.currentForm === FormStages.Personal
         ? 'active'
         : '';
     },
