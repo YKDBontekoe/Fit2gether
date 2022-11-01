@@ -14,7 +14,7 @@
       <NuxtLink class="text-decoration-none fw-bold" to="/explain"
         >here</NuxtLink
       >. And if you are interested in the privacy policy, you can read it
-      <NuxtLink class="text-decoration-none fw-bold" to="/privacy-policy"
+      <NuxtLink class="text-decoration-none fw-bold" to="/privacy"
         >here</NuxtLink
       >.
     </p>
@@ -72,20 +72,16 @@ export default defineComponent({
   },
   methods: {
     prepareData() {
-      this.i_formData.generalData.age = this.i_formData.generalData.age / 5;
-      this.i_formData.healthData.physHlth =
-        this.i_formData.healthData.physHlth * 3;
-      this.i_formData.healthData.mentHlth =
-        this.i_formData.healthData.mentHlth * 3;
-      this.i_formData.healthData.genHlth =
-        this.i_formData.healthData.genHlth / 2;
+      this.i_formData.generalData.age = Math.round(
+        this.i_formData.generalData.age / 5
+      );
     },
     processData() {
       this.prepareData();
       return [
         this.i_formData.healthData.highBP,
         this.i_formData.healthData.highChol,
-        this.i_formData.generalData.bmi,
+        this.i_formData.healthData.bmi,
         this.i_formData.healthData.smoker,
         this.i_formData.healthData.stroke,
         this.i_formData.healthData.physActivity,
@@ -95,7 +91,7 @@ export default defineComponent({
         this.i_formData.healthData.mentHlth,
         this.i_formData.healthData.physHlth,
         this.i_formData.healthData.diffWalk,
-        this.i_formData.healthData.sex,
+        this.i_formData.generalData.sex,
         this.i_formData.generalData.age,
       ].map(Number);
     },

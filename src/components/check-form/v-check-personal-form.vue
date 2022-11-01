@@ -5,6 +5,7 @@
     <input
       type="text"
       placeholder="First Name"
+      class="form-control"
       :value="formData.personalData.firstName"
       required
       @change="
@@ -18,6 +19,7 @@
       type="text"
       placeholder="Last Name"
       :value="formData.personalData.lastName"
+      class="form-control"
       required
       @change="
         $emit(
@@ -30,6 +32,7 @@
       type="email"
       placeholder="Email"
       :value="formData.personalData.emailAddress"
+      class="form-control"
       required
       @change="
         $emit(

@@ -7,8 +7,8 @@ export type HealthCheckType = {
   fruits: number;
   veggies: number;
   diffWalk: number;
-  sex: number;
   genHlth: number;
   mentHlth: number;
   physHlth: number;
+  bmi: number;
 };

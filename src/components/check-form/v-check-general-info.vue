@@ -9,31 +9,25 @@
       type="number"
       name="Age"
       :value="formData.generalData.age"
+      class="form-control"
       required
       @input="
         $emit('update:formData', updateProperty('age', $event.target.value))
       "
     />
 
-    <label for="BMI">Body Mass Index (BMI)</label>
-    <div class="input-group mb-3">
-      <input
-        id="BMI"
-        type="number"
-        name="BMI (Body Mass Index)"
-        :value="formData.generalData.bmi"
-        required
-        @input="
-          $emit('update:formData', updateProperty('bmi', $event.target.value))
-        "
-      />
-      <small class="w-100 text-muted"
-        >If you don't know your BMI click
-        <a href="https://www.calculator.net/bmi-calculator.html" target="_blank"
-          >here</a
-        >
-      </small>
-    </div>
+    <label class="form-check-label" for="Sex">What is your gender?</label>
+    <VRadioGroup
+      id="Sex"
+      :v-model="formData.generalData.sex"
+      :options="[1.0, 0.0]"
+      :options-alias="['Male', 'Female']"
+      :is-required="true"
+      radio-group-name="Sex"
+      @change="
+        $emit('update:formData', updateProperty('sex', $event.target.value))
+      "
+    />
 
     <VCheckStateHandler
       v-model:next-model-value="nextChildModelValue"
@@ -48,10 +42,11 @@
 import { defineComponent } from 'vue';
 import { FormStages } from '@/types/check-form/enums/FormStages';
 import VCheckStateHandler from '@/components/check-form/shared/v-check-state-handler';
+import VRadioGroup from '@/components/input/v-radio-group';
 
 export default defineComponent({
   name: 'VCheckGeneralInfo',
-  components: { VCheckStateHandler },
+  components: { VRadioGroup, VCheckStateHandler },
   props: {
     formData: { type: Object, required: true },
     nextModelValue: { type: String, default: '' },

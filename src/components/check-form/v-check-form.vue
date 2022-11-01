@@ -90,16 +90,16 @@ export default defineComponent({
           highBP: 0.0,
           highChol: 0.0,
           mentHlth: 0.0,
-          sex: 0.0,
           physActivity: 0.0,
           physHlth: 0.0,
           smoker: 0.0,
           stroke: 0.0,
           veggies: 0.0,
+          bmi: 0.0,
         },
         generalData: {
-          age: 0,
-          bmi: 0,
+          age: 0.0,
+          sex: 0.0,
         }
       };
     },

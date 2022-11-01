@@ -9,7 +9,7 @@
       form.
 
       The final prediction is based on 254.000 people who filled in the survey
-      provided by the CDC in 2019. The survey contains 15 questions. The survey is available <a class='text-decoration-none fw-bold' href='https://www.cdc.gov/brfss/annual_data/annual_2019.html' target='_blank'>here</a>."
+      provided by the CDC in 2015. The survey contains 15 questions. The survey is available <a class='text-decoration-none fw-bold' href='https://www.cdc.gov/brfss/annual_data/annual_2019.html' target='_blank'>here</a>."
     />
     <VAccordion
       title="How do we calculate the risk?"

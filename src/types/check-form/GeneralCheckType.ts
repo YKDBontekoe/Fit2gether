@@ -1,4 +1,4 @@
 export type GeneralCheckType = {
-  bmi: number;
+  sex: number;
   age: number;
 }

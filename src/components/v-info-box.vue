@@ -1,7 +1,7 @@
 <template>
   <div
     class="card border-0 text-white mb-3 rounded-5"
-    style="max-width: 25rem; margin: 1rem; padding: 1rem"
+    style="max-width: 20rem; margin: 1rem; padding: 1rem"
   >
     <div style="margin: 10px">
       <slot />
@@ -54,11 +54,11 @@ export default defineComponent({
     limitedText() {
       return !this.isTextLimited
         ? this.text
-        : this.text.substring(0, 150) + '...';
+        : this.text.substring(0, 125) + '...';
     },
   },
   mounted() {
-    this.isTextLimited = this.text.length > 150;
+    this.isTextLimited = this.text.length > 125;
   },
   methods: {
     expandText() {

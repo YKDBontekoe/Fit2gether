@@ -23,8 +23,9 @@
       />
 
       <label class="form-check-label" for="HighChol"
-        >Have you EVER been told by a doctor, nurse or other health professional
-        that your blood cholesterol is high?</label
+        >Have you <strong class="text-primary">ever</strong> been told by a
+        doctor, nurse or other health professional that your blood cholesterol
+        is high?</label
       >
       <VRadioGroup
         id="HighChol"
@@ -42,8 +43,9 @@
       />
 
       <label class="form-check-label" for="Smoker"
-        >Have you smoked at least 100 cigarettes in your entire life? [Note: 5
-        packs = 100 cigarettes]</label
+        >Have you smoked at least 100 cigarettes in your
+        <strong class="text-primary">entire</strong> life? (Note: 5 packs = 100
+        cigarettes)</label
       >
       <VRadioGroup
         id="Smoker"
@@ -61,7 +63,8 @@
       />
 
       <label class="form-check-label" for="Stroke"
-        >Have you ever had a stroke?</label
+        >Have you <strong class="text-primary">ever</strong> had a
+        stroke?</label
       >
       <VRadioGroup
         id="Stroke"
@@ -79,8 +82,8 @@
       />
 
       <label class="form-check-label" for="PhysActivity"
-        >Adults who reported doing physical activity or exercise during the past
-        30 days other than their regular job</label
+        >Have you done any physical activity or exercise during the past 30 days
+        other than their regular job?</label
       >
       <VRadioGroup
         id="PhysActivity"
@@ -98,7 +101,8 @@
       />
 
       <label class="form-check-label" for="Fruits"
-        >Consume Fruit 1 or more times per day</label
+        >Do you eat atleast one piece of fruit
+        <strong class="text-primary">every</strong> day?</label
       >
       <VRadioGroup
         id="Fruits"
@@ -116,7 +120,8 @@
       />
 
       <label class="form-check-label" for="Veggies"
-        >Consume Vegetables 1 or more times per day</label
+        >Do you eat atleast one vegetable
+        <strong class="text-primary">every</strong> day?</label
       >
       <VRadioGroup
         id="Veggies"
@@ -150,20 +155,29 @@
           )
         "
       />
-      <label class="form-check-label" for="Sex"
-        >Indicate sex of respondent</label
-      >
-      <VRadioGroup
-        id="Sex"
-        :v-model="formData.healthData.sex"
-        :options="decisionsValues"
-        :options-alias="['Male', 'Female']"
-        :is-required="true"
-        radio-group-name="Sex"
-        @change="
-          $emit('update:formData', updateProperty('sex', $event.target.value))
-        "
-      />
+
+      <label for="BMI">Body Mass Index (BMI)</label>
+      <div class="input-group mb-3">
+        <input
+          id="BMI"
+          type="number"
+          name="BMI (Body Mass Index)"
+          :value="formData.healthData.bmi"
+          class="form-control"
+          required
+          @input="
+            $emit('update:formData', updateProperty('bmi', $event.target.value))
+          "
+        />
+        <small class="w-100 text-muted"
+          >If you don't know your BMI click
+          <a
+            href="https://www.calculator.net/bmi-calculator.html"
+            target="_blank"
+            >here</a
+          >
+        </small>
+      </div>
 
       <VSlider
         id="GenHlth"
@@ -172,7 +186,9 @@
         bad-min-value-name="Bad"
         good-max-value-name="Very Good"
         :is-required="true"
-        :step-value="0.5"
+        :min-value="1"
+        :max-value="5"
+        :step-value="1"
         @change="
           $emit(
             'update:formData',
@@ -187,10 +203,12 @@
           depression, and problems with emotions, for how many days during the
           past 30 days was your mental health not good?"
         :v-model="formData.healthData.mentHlth"
-        bad-min-value-name="Bad"
-        good-max-value-name="Very Good"
+        bad-min-value-name="0 days"
+        good-max-value-name="All 30 days"
         :is-required="true"
-        :step-value="0.5"
+        :min-value="1"
+        :max-value="30"
+        :step-value="1"
         @change="
           $emit(
             'update:formData',
@@ -205,10 +223,12 @@
           illness and injury, for how many days during the past 30 days was your
           physical health not good?"
         :v-model="formData.healthData.physHlth"
-        bad-min-value-name="Bad"
-        good-max-value-name="Very Good"
+        bad-min-value-name="0 days"
+        good-max-value-name="All 30 days"
         :is-required="true"
-        :step-value="0.5"
+        :min-value="0"
+        :max-value="30"
+        :step-value="1"
         @change="
           $emit(
             'update:formData',
