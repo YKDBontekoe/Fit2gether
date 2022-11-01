@@ -1,7 +1,33 @@
 <template>
   <fieldset>
-    <h2 class="fs-title">Welcome</h2>
-    <p></p>
+    <h2 class="text-primary">Welcome</h2>
+    <img
+      class="welcome-image"
+      src="@/assets/images/welcome-image.jpg"
+      alt="Welcome image"
+    />
+    <p class="text-xl" style="margin-top: 1rem">
+      <span class="text-primary fw-bold">Welcome</span> to the check form.
+      Please fill in the form to get your check results and to get a better
+      understanding of your health status. This form is designed to make a
+      prediction based on your individual data. It is
+      <strong class="text-primary">not</strong> a medical diagnosis. If you have
+      any questions, please contact your doctor. Read more about how we
+      calculate the risk
+      <NuxtLink class="text-decoration-none fw-bold" to="/explain"
+        >here</NuxtLink
+      >. And if you are interested in the privacy policy, you can read it
+      <NuxtLink class="text-decoration-none fw-bold" to="/privacy"
+        >here</NuxtLink
+      >.
+    </p>
+
+    <p>
+      The form contains 15 questions and statements regarding your personal well
+      being. Please answer them as honestly as possible. The more accurate your
+      answers are, the more accurate the prediction will be. The survey takes
+      about 5 minutes. If you are ready to go, click the button below.
+    </p>
     <VCheckStateHandler
       v-model:next-model-value="nextChildModelValue"
       :has-previous="false"
@@ -39,4 +65,10 @@ export default defineComponent({
 });
 </script>
 
-<style scoped></style>
+<style scoped>
+.welcome-image {
+  width: 150px;
+  height: 100%;
+  object-fit: cover;
+}
+</style>
