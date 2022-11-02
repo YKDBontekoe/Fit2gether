@@ -3,31 +3,39 @@
     <h2 class="fs-title">General Data</h2>
     <h3 class="fs-subtitle">General data about you</h3>
 
-    <label for="Age">Age</label>
-    <input
-      id="Age"
-      type="number"
-      name="Age"
-      :value="formData.generalData.age"
-      class="form-control"
-      required
-      @input="
-        $emit('update:formData', updateProperty('age', $event.target.value))
-      "
-    />
+    <div class="form-container">
+      <div class="col-lg-5">
+        <label for="Age" class="control-label col-sm label-left"
+          >What is your age?</label
+        >
+        <input
+          id="Age"
+          type="number"
+          name="Age"
+          :value="formData.generalData.age"
+          class="form-control"
+          required
+          @input="
+            $emit('update:formData', updateProperty('age', $event.target.value))
+          "
+        />
+      </div>
 
-    <label class="form-check-label" for="Sex">What is your gender?</label>
-    <VRadioGroup
-      id="Sex"
-      :v-model="formData.generalData.sex"
-      :options="[1.0, 0.0]"
-      :options-alias="['Male', 'Female']"
-      :is-required="true"
-      radio-group-name="Sex"
-      @change="
-        $emit('update:formData', updateProperty('sex', $event.target.value))
-      "
-    />
+      <div class="col-lg-5">
+        <p>What is your gender?</p>
+        <VRadioGroup
+          id="Sex"
+          :v-model="formData.generalData.sex"
+          :options="[1.0, 0.0]"
+          :options-alias="['Male', 'Female']"
+          :is-required="true"
+          radio-group-name="Sex"
+          @change="
+            $emit('update:formData', updateProperty('sex', $event.target.value))
+          "
+        />
+      </div>
+    </div>
 
     <VCheckStateHandler
       v-model:next-model-value="nextChildModelValue"

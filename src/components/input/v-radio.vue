@@ -1,17 +1,18 @@
 <template>
   <div class="form-check form-check-inline">
-    <label class="form-check-label" :for="GetId">
-      {{ optionAlias }}
-    </label>
     <input
       :id="getId"
-      class="form-check-input"
+      class="btn-check"
       type="radio"
       :name="radioGroupName"
       :value="option"
       :required="getIsRequired"
+      :checked="option === 0"
       @change="$parent.$emit('input', option)"
     />
+    <label class="btn btn-outline-primary" :for="getId">
+      {{ optionAlias }}
+    </label>
   </div>
 </template>
 
@@ -51,5 +52,10 @@ export default {
 <style scoped>
 label {
   cursor: pointer;
+}
+
+.btn-outline-primary:active,
+.btn-outline-primary:visited {
+  color: white !important;
 }
 </style>

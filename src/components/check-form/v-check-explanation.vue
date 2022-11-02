@@ -7,13 +7,11 @@
       alt="Welcome image"
     />
     <p class="text-xl" style="margin-top: 1rem">
-      <span class="text-primary fw-bold">Welcome</span> to the check form.
-      Please fill in the form to get your check results and to get a better
-      understanding of your health status. This form is designed to make a
-      prediction based on your individual data. It is
-      <strong class="text-primary">not</strong> a medical diagnosis. If you have
-      any questions, please contact your doctor. Read more about how we
-      calculate the risk
+      <span class="text-primary fw-bold">Welcome</span> to the heart disease
+      test. This form is designed to make a prediction based on your individual
+      data. It is <strong class="text-primary">not</strong> a medical diagnosis.
+      If you have any questions, please contact your doctor. Read more about how
+      we calculate the risk
       <NuxtLink class="text-decoration-none fw-bold" to="/explain"
         >here</NuxtLink
       >. And if you are interested in the privacy policy, you can read it

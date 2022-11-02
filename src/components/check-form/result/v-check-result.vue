@@ -1,30 +1,42 @@
 <template>
   <fieldset>
     <h1 class="fs-title">Results</h1>
-    <h2 class="fs-subtitle">Your results are in!</h2>
-    <p>
-      Hello <strong>{{ formData.personalData.firstName }} </strong>,
-    </p>
-    <p>
-      Your risk of having a heart attack in the next 10 years is
-      <strong>{{ predictedValue }}</strong
-      >. This is based on your answers to the questions in the previous steps.
-      If you have any questions, please contact your doctor. Read more about how
-      we calculate the risk
-      <NuxtLink class="text-decoration-none fw-bold" to="/explain"
-        >here</NuxtLink
-      >. And if you are interested in the privacy policy, you can read it
-      <NuxtLink class="text-decoration-none fw-bold" to="/privacy"
-        >here</NuxtLink
-      >.
-    </p>
-    <small class="text-muted"
-      >*Based on our calculations you have a {{ parsedPredictedValue }} chance
-      at getting cardio vascular disease.</small
-    >
-    <hr />
-    <h5>Tips</h5>
-    <v-result-tips :form-data="i_formData" />
+    <div v-if="!isLoading">
+      <div
+        class="spinner-grow bg-primary"
+        style="width: 3rem; height: 3rem"
+        role="status"
+      >
+        <span class="visually-hidden">Loading...</span>
+      </div>
+      <p class="text-center">Calculating results...</p>
+    </div>
+    <div v-else>
+      <p class="h5">Your results are in!</p>
+      <p class="h6">
+        Hello <strong>{{ formData.personalData.firstName }} </strong>,
+      </p>
+      <p>
+        Your risk of having a heart attack in the next 10 years is
+        <strong>{{ predictedValue }}</strong
+        >. This is based on your answers to the questions in the previous steps.
+        If you have any questions, please contact your doctor. Read more about
+        how we calculate the risk
+        <NuxtLink class="text-decoration-none fw-bold" to="/explain"
+          >here</NuxtLink
+        >. And if you are interested in the privacy policy, you can read it
+        <NuxtLink class="text-decoration-none fw-bold" to="/privacy"
+          >here</NuxtLink
+        >.
+      </p>
+      <small class="text-muted"
+        >*Based on our calculations you have a {{ parsedPredictedValue }} chance
+        at getting cardio vascular disease.</small
+      >
+      <hr />
+      <h5>Tips</h5>
+      <v-result-tips :form-data="i_formData" />
+    </div>
   </fieldset>
 </template>
 
@@ -59,6 +71,9 @@ export default defineComponent({
     },
     parsedPredictedValue() {
       return `${(this.prediction * 100).toFixed(2)}%`;
+    },
+    isLoading() {
+      return !!this.prediction;
     },
   },
   mounted: async function () {

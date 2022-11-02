@@ -2,240 +2,270 @@
   <fieldset>
     <h2 class="fs-title">Health Data</h2>
     <h3 class="fs-subtitle">How is your current health?</h3>
-
-    <div class="row">
-      <label class="form-check-label" for="HighBP"
-        >Do you have a high blood pressure (confirmed by a doctor)?</label
-      >
-      <VRadioGroup
-        id="HighBP"
-        :v-model="formData.healthData.highBP"
-        :options="decisionsValues"
-        :options-alias="decisionsAliases"
-        :is-required="true"
-        radio-group-name="HighBP"
-        @change="
-          $emit(
-            'update:formData',
-            updateProperty('highBP', $event.target.value)
-          )
-        "
-      />
-
-      <label class="form-check-label" for="HighChol"
-        >Have you <strong class="text-primary">ever</strong> been told by a
-        doctor, nurse or other health professional that your blood cholesterol
-        is high?</label
-      >
-      <VRadioGroup
-        id="HighChol"
-        :v-model="formData.healthData.highChol"
-        :options="decisionsValues"
-        :options-alias="decisionsAliases"
-        :is-required="true"
-        radio-group-name="HighChol"
-        @change="
-          $emit(
-            'update:formData',
-            updateProperty('highChol', $event.target.value)
-          )
-        "
-      />
-
-      <label class="form-check-label" for="Smoker"
-        >Have you smoked at least 100 cigarettes in your
-        <strong class="text-primary">entire</strong> life? (Note: 5 packs = 100
-        cigarettes)</label
-      >
-      <VRadioGroup
-        id="Smoker"
-        :v-model="formData.healthData.smoker"
-        :options="decisionsValues"
-        :options-alias="decisionsAliases"
-        :is-required="true"
-        radio-group-name="Smoker"
-        @change="
-          $emit(
-            'update:formData',
-            updateProperty('smoker', $event.target.value)
-          )
-        "
-      />
-
-      <label class="form-check-label" for="Stroke"
-        >Have you <strong class="text-primary">ever</strong> had a
-        stroke?</label
-      >
-      <VRadioGroup
-        id="Stroke"
-        :v-model="formData.healthData.stroke"
-        :options="decisionsValues"
-        :options-alias="decisionsAliases"
-        :is-required="true"
-        radio-group-name="Stroke"
-        @change="
-          $emit(
-            'update:formData',
-            updateProperty('stroke', $event.target.value)
-          )
-        "
-      />
-
-      <label class="form-check-label" for="PhysActivity"
-        >Have you done any physical activity or exercise during the past 30 days
-        other than their regular job?</label
-      >
-      <VRadioGroup
-        id="PhysActivity"
-        :v-model="formData.healthData.physActivity"
-        :options="decisionsValues"
-        :options-alias="decisionsAliases"
-        :is-required="true"
-        radio-group-name="PhysActivity"
-        @change="
-          $emit(
-            'update:formData',
-            updateProperty('physActivity', $event.target.value)
-          )
-        "
-      />
-
-      <label class="form-check-label" for="Fruits"
-        >Do you eat atleast one piece of fruit
-        <strong class="text-primary">every</strong> day?</label
-      >
-      <VRadioGroup
-        id="Fruits"
-        :v-model="formData.healthData.fruits"
-        :options="decisionsValues"
-        :options-alias="decisionsAliases"
-        :is-required="true"
-        radio-group-name="Fruits"
-        @change="
-          $emit(
-            'update:formData',
-            updateProperty('fruits', $event.target.value)
-          )
-        "
-      />
-
-      <label class="form-check-label" for="Veggies"
-        >Do you eat atleast one vegetable
-        <strong class="text-primary">every</strong> day?</label
-      >
-      <VRadioGroup
-        id="Veggies"
-        :v-model="formData.healthData.veggies"
-        :options="decisionsValues"
-        :options-alias="decisionsAliases"
-        :is-required="true"
-        radio-group-name="Veggies"
-        @change="
-          $emit(
-            'update:formData',
-            updateProperty('veggies', $event.target.value)
-          )
-        "
-      />
-
-      <label for="DiffWalk"
-        >Do you have serious difficulty walking or climbing stairs?</label
-      >
-      <VRadioGroup
-        id="DiffWalk"
-        :v-model="formData.healthData.diffWalk"
-        :options="decisionsValues"
-        :options-alias="decisionsAliases"
-        :is-required="true"
-        radio-group-name="DiffWalk"
-        @change="
-          $emit(
-            'update:formData',
-            updateProperty('diffWalk', $event.target.value)
-          )
-        "
-      />
-
-      <label for="BMI">Body Mass Index (BMI)</label>
-      <div class="input-group mb-3">
-        <input
-          id="BMI"
-          type="number"
-          name="BMI (Body Mass Index)"
-          :value="formData.healthData.bmi"
-          class="form-control"
-          required
-          @input="
-            $emit('update:formData', updateProperty('bmi', $event.target.value))
+    <div class="form-container">
+      <div class="col-lg-8">
+        <p>Do you have a high blood pressure (confirmed by a doctor)?</p>
+        <VRadioGroup
+          id="HighBP"
+          :v-model="formData.healthData.highBP"
+          :options="decisionsValues"
+          :options-alias="decisionsAliases"
+          :is-required="true"
+          radio-group-name="HighBP"
+          @change="
+            $emit(
+              'update:formData',
+              updateProperty('highBP', $event.target.value)
+            )
           "
         />
-        <small class="w-100 text-muted"
-          >If you don't know your BMI click
-          <a
-            href="https://www.calculator.net/bmi-calculator.html"
-            target="_blank"
-            >here</a
-          >
-        </small>
       </div>
 
-      <VSlider
-        id="GenHlth"
-        slider-text="Would you say that in general your health is?"
-        :v-model="formData.healthData.genHlth"
-        bad-min-value-name="Bad"
-        good-max-value-name="Very Good"
-        :is-required="true"
-        :min-value="1"
-        :max-value="5"
-        :step-value="1"
-        @change="
-          $emit(
-            'update:formData',
-            updateProperty('genHlth', $event.target.value)
-          )
-        "
-      /><br />
+      <br />
+      <div class="col-lg-8">
+        <p>
+          Have you <strong class="text-primary">ever</strong> been told by a
+          doctor, nurse or other health professional that your blood cholesterol
+          is high?
+        </p>
+        <VRadioGroup
+          id="HighChol"
+          :v-model="formData.healthData.highChol"
+          :options="decisionsValues"
+          :options-alias="decisionsAliases"
+          :is-required="true"
+          radio-group-name="HighChol"
+          @change="
+            $emit(
+              'update:formData',
+              updateProperty('highChol', $event.target.value)
+            )
+          "
+        />
+      </div>
 
-      <VSlider
-        id="MentHlth"
-        slider-text="Now thinking about your mental health, which includes stress,
+      <br />
+      <div class="col-lg-8">
+        <p>
+          Have you smoked at least 100 cigarettes in your
+          <strong class="text-primary">entire</strong> life? (Note: 5 packs =
+          100 cigarettes)
+        </p>
+        <VRadioGroup
+          id="Smoker"
+          :v-model="formData.healthData.smoker"
+          :options="decisionsValues"
+          :options-alias="decisionsAliases"
+          :is-required="true"
+          radio-group-name="Smoker"
+          @change="
+            $emit(
+              'update:formData',
+              updateProperty('smoker', $event.target.value)
+            )
+          "
+        />
+      </div>
+
+      <br />
+      <div class="col-lg-8">
+        <p>Have you <strong class="text-primary">ever</strong> had a stroke?</p>
+        <VRadioGroup
+          id="Stroke"
+          :v-model="formData.healthData.stroke"
+          :options="decisionsValues"
+          :options-alias="decisionsAliases"
+          :is-required="true"
+          radio-group-name="Stroke"
+          @change="
+            $emit(
+              'update:formData',
+              updateProperty('stroke', $event.target.value)
+            )
+          "
+        />
+      </div>
+
+      <br />
+      <div class="col-lg-8">
+        <p>
+          Have you done any physical activity or exercise during the past 30
+          days other than their regular job?
+        </p>
+        <VRadioGroup
+          id="PhysActivity"
+          :v-model="formData.healthData.physActivity"
+          :options="decisionsValues"
+          :options-alias="decisionsAliases"
+          :is-required="true"
+          radio-group-name="PhysActivity"
+          @change="
+            $emit(
+              'update:formData',
+              updateProperty('physActivity', $event.target.value)
+            )
+          "
+        />
+      </div>
+
+      <br />
+      <div class="col-lg-8">
+        <p>
+          Do you eat atleast one piece of fruit
+          <strong class="text-primary">every</strong> day?
+        </p>
+        <VRadioGroup
+          id="Fruits"
+          :v-model="formData.healthData.fruits"
+          :options="decisionsValues"
+          :options-alias="decisionsAliases"
+          :is-required="true"
+          radio-group-name="Fruits"
+          @change="
+            $emit(
+              'update:formData',
+              updateProperty('fruits', $event.target.value)
+            )
+          "
+        />
+      </div>
+
+      <br />
+      <div class="col-lg-8">
+        <p>
+          Do you eat atleast one vegetable
+          <strong class="text-primary">every</strong> day?
+        </p>
+        <VRadioGroup
+          id="Veggies"
+          :v-model="formData.healthData.veggies"
+          :options="decisionsValues"
+          :options-alias="decisionsAliases"
+          :is-required="true"
+          radio-group-name="Veggies"
+          @change="
+            $emit(
+              'update:formData',
+              updateProperty('veggies', $event.target.value)
+            )
+          "
+        />
+      </div>
+
+      <br />
+      <div class="col-lg-8">
+        <p>Do you have serious difficulty walking or climbing stairs?</p>
+        <VRadioGroup
+          id="DiffWalk"
+          :v-model="formData.healthData.diffWalk"
+          :options="decisionsValues"
+          :options-alias="decisionsAliases"
+          :is-required="true"
+          radio-group-name="DiffWalk"
+          @change="
+            $emit(
+              'update:formData',
+              updateProperty('diffWalk', $event.target.value)
+            )
+          "
+        />
+      </div>
+
+      <br />
+      <div class="col-lg-5">
+        <label for="BMI">What is your Body Mass Index (BMI)?</label>
+        <div class="input-group mb-3">
+          <input
+            id="BMI"
+            type="number"
+            name="BMI (Body Mass Index)"
+            :value="formData.healthData.bmi"
+            class="form-control"
+            required
+            @input="
+              $emit(
+                'update:formData',
+                updateProperty('bmi', $event.target.value)
+              )
+            "
+          />
+          <small class="w-100 text-muted"
+            >If you don't know your BMI click
+            <a
+              href="https://www.calculator.net/bmi-calculator.html"
+              target="_blank"
+              class="text-decoration-none fw-bold"
+              >here</a
+            >
+          </small>
+        </div>
+      </div>
+      <br />
+      <div class="col-lg-8">
+        <VSlider
+          id="GenHlth"
+          slider-text="Would you say that in general your health is?"
+          :v-model="formData.healthData.genHlth"
+          bad-min-value-name="Bad"
+          good-max-value-name="Very Good"
+          :is-required="true"
+          :min-value="1"
+          :max-value="5"
+          :step-value="1"
+          @change="
+            $emit(
+              'update:formData',
+              updateProperty('genHlth', $event.target.value)
+            )
+          "
+        />
+      </div>
+      <br />
+
+      <div class="col-lg-8">
+        <VSlider
+          id="MentHlth"
+          slider-text="Now thinking about your mental health, which includes stress,
           depression, and problems with emotions, for how many days during the
           past 30 days was your mental health not good?"
-        :v-model="formData.healthData.mentHlth"
-        bad-min-value-name="0 days"
-        good-max-value-name="All 30 days"
-        :is-required="true"
-        :min-value="1"
-        :max-value="30"
-        :step-value="1"
-        @change="
-          $emit(
-            'update:formData',
-            updateProperty('mentHlth', $event.target.value)
-          )
-        "
-      /><br />
+          :v-model="formData.healthData.mentHlth"
+          bad-min-value-name="0 days"
+          good-max-value-name="All 30 days"
+          :is-required="true"
+          :min-value="1"
+          :max-value="30"
+          :step-value="1"
+          @change="
+            $emit(
+              'update:formData',
+              updateProperty('mentHlth', $event.target.value)
+            )
+          "
+        />
+      </div>
+      <br />
 
-      <VSlider
-        id="PhysHlth"
-        slider-text="Now thinking about your physical health, which includes physical
+      <div class="col-lg-8">
+        <VSlider
+          id="PhysHlth"
+          slider-text="Now thinking about your physical health, which includes physical
           illness and injury, for how many days during the past 30 days was your
           physical health not good?"
-        :v-model="formData.healthData.physHlth"
-        bad-min-value-name="0 days"
-        good-max-value-name="All 30 days"
-        :is-required="true"
-        :min-value="0"
-        :max-value="30"
-        :step-value="1"
-        @change="
-          $emit(
-            'update:formData',
-            updateProperty('physHlth', $event.target.value)
-          )
-        "
-      />
+          :v-model="formData.healthData.physHlth"
+          bad-min-value-name="0 days"
+          good-max-value-name="All 30 days"
+          :is-required="true"
+          :min-value="0"
+          :max-value="30"
+          :step-value="1"
+          @change="
+            $emit(
+              'update:formData',
+              updateProperty('physHlth', $event.target.value)
+            )
+          "
+        />
+      </div>
     </div>
     <VCheckStateHandler
       v-model:next-model-value="nextChildModelValue"

@@ -3,6 +3,14 @@
   width: 90%;
 }
 
+.form-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+
 .container img {
   width: 100%;
   height: auto;
@@ -22,6 +30,20 @@
   left: 50%;
   transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
+}
+
+p {
+  color: 	#505050;
+  font-size: 17px;
+}
+
+label {
+  color: 	#676767;
+  font-size: 17px;
+}
+
+.label-left {
+  float: left;
 }
 
 #msform {
@@ -52,14 +74,13 @@
 #msform input, #msform textarea {
   padding: 15px;
   border: 1px solid #ccc;
+  color: #505050;
   border-radius: 4px;
   margin-bottom: 10px;
   width: 100%;
   box-sizing: border-box;
-  color: #2C3E50;
-  font-size: 13px;
+  font-size: 17px;
 }
-
 
 /*buttons*/
 #msform .action-button {

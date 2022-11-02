@@ -1,5 +1,5 @@
 <template>
-  <div class="d-flex">
+  <div class="btn-group" role="group">
     <VRadio
       v-for="(index, option) in options"
       :key="index"
